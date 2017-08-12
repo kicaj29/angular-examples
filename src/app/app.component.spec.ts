@@ -1,6 +1,9 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpModule } from '@angular/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -8,6 +11,23 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        RouterModule,
+        HttpModule,
+        RouterTestingModule.withRoutes(
+    [
+            {
+              path: '',
+              pathMatch: 'full',
+              redirectTo: 'http-examples'
+            },
+            {
+              path: 'http-examples',
+              loadChildren: './http-examples/http-examples.module#HttpExamplesModule'
+            }
+          ]
+    )
+      ]
     }).compileComponents();
   }));
 

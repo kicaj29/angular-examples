@@ -19,7 +19,7 @@ describe('CustomerClientService', () => {
     service.getCustomerByRequestDefinition().subscribe(
       (succ: Customer) => {
         expect(succ.Name).toEqual("Jacek");
-        expect(succ.SecondName).toEqual("Placek");
+        expect(succ.SecondName).toEqual("Kowalski");
       },
       (err: any) => {
 
