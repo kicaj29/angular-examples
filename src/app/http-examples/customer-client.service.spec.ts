@@ -12,18 +12,44 @@ describe('CustomerClientService', () => {
     });
   });
 
-  it('should ...', inject([CustomerClientService], (service: CustomerClientService) => {
+  it('service should be created', inject([CustomerClientService], (service: CustomerClientService) => {
     expect(service).toBeTruthy();
   }));
-  it('should return customer data', inject([CustomerClientService], (service: CustomerClientService) => {
-    service.getCustomerByRequestDefinition().subscribe(
-      (succ: Customer) => {
-        expect(succ.Name).toEqual("Jacek");
-        expect(succ.SecondName).toEqual("Kowalski");
-      },
-      (err: any) => {
 
-      }
-    )
-  }));
+  it('getCustomerByRequestDefinition should return customer data', inject([CustomerClientService], (service: CustomerClientService) => {
+        service.getCustomerByRequestDefinition().subscribe(
+          (succ: Customer) => {
+            expect(succ.Name).toEqual("Jacek");
+            expect(succ.SecondName).toEqual("Kowalski");
+          },
+          (err: any) => {
+          }
+        )
+    })
+  );
+
+  it('getCustomerByHttpGet should return customer data', inject([CustomerClientService], (service: CustomerClientService) => {
+      service.getCustomerByHttpGet().subscribe(
+        (succ: Customer) => {
+          expect(succ.Name).toEqual("Jacek");
+          expect(succ.SecondName).toEqual("Kowalski");
+        },
+        (err: any) => {
+        }
+      )
+    })
+  );
+
+  it('getCustomerByHttpGetWithMapCatch should return customer data', inject([CustomerClientService], (service: CustomerClientService) => {
+      service.getCustomerByHttpGetWithMapCatch().subscribe(
+        (succ: Customer) => {
+          expect(succ.Name).toEqual("Jacek");
+          expect(succ.SecondName).toEqual("Kowalski");
+        },
+        (err: any) => {
+        }
+      )
+    })
+  );
+
 });

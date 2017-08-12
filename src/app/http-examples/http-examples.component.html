@@ -1,6 +1,7 @@
 <p>
   http-examples works!
-  <button (click)="getHttpViaRequest()">getHttpViaRequest</button>
-  <button (click)="getHttp()">getHttp</button>
-  <button (click)="getHttpRxJsOperatorsDisplayData()">getHttpRxJsOperatorsDisplayData</button>
+  <button (click)="getCustomerByRequestDefinition()">getCustomerByRequestDefinition</button>
+  <button (click)="getCustomerByHttpGet()">getCustomerByHttpGet</button>
+  <button (click)="getCustomerByHttpGetWithMapCatch()">getCustomerByHttpGetWithMapCatch</button>
+  <span>Name: {{viewModel?.Name}}, SecondName: {{viewModel?.SecondName}}</span>
 </p>
