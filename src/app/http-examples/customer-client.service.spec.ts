@@ -1,13 +1,18 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { CustomerClientService } from './customer-client.service';
-import { HttpModule } from '@angular/http';
+import { BaseRequestOptions, HttpModule } from '@angular/http';
 import { Customer } from './customer';
+import { myMockBackendServiceProvider } from './my-mock-backend.service.provider';
+import { MockBackend } from '@angular/http/testing';
 
 describe('CustomerClientService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CustomerClientService],
+      providers: [CustomerClientService,
+        myMockBackendServiceProvider,
+        MockBackend,
+        BaseRequestOptions],
       imports: [HttpModule]
     });
   });
@@ -19,8 +24,8 @@ describe('CustomerClientService', () => {
   it('getCustomerByRequestDefinition should return customer data', inject([CustomerClientService], (service: CustomerClientService) => {
         service.getCustomerByRequestDefinition().subscribe(
           (succ: Customer) => {
-            expect(succ.Name).toEqual("Jacek");
-            expect(succ.SecondName).toEqual("Kowalski");
+            expect(succ.Name).toEqual("Jacek123");
+            expect(succ.SecondName).toEqual("KowalskiABC");
           },
           (err: any) => {
           }
@@ -31,8 +36,8 @@ describe('CustomerClientService', () => {
   it('getCustomerByHttpGet should return customer data', inject([CustomerClientService], (service: CustomerClientService) => {
       service.getCustomerByHttpGet().subscribe(
         (succ: Customer) => {
-          expect(succ.Name).toEqual("Jacek");
-          expect(succ.SecondName).toEqual("Kowalski");
+          expect(succ.Name).toEqual("Jacek123");
+          expect(succ.SecondName).toEqual("KowalskiABC");
         },
         (err: any) => {
         }
@@ -43,8 +48,8 @@ describe('CustomerClientService', () => {
   it('getCustomerByHttpGetWithMapCatch should return customer data', inject([CustomerClientService], (service: CustomerClientService) => {
       service.getCustomerByHttpGetWithMapCatch().subscribe(
         (succ: Customer) => {
-          expect(succ.Name).toEqual("Jacek");
-          expect(succ.SecondName).toEqual("Kowalski");
+          expect(succ.Name).toEqual("Jacek123");
+          expect(succ.SecondName).toEqual("KowalskiABC");
         },
         (err: any) => {
         }

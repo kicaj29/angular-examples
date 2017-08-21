@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import './rxjs-extensions';
-import { Observable } from 'rxjs/Observable';
-import { Http, Response, Request, RequestOptions, Headers, RequestMethod } from '@angular/http';
 import { Customer } from './customer';
 import { CustomerClientService } from './customer-client.service';
 
@@ -13,7 +11,7 @@ import { CustomerClientService } from './customer-client.service';
 export class HttpExamplesComponent implements OnInit {
 
   private viewModel: Customer;
-  constructor(private http: Http, private svc: CustomerClientService) { }
+  constructor(private svc: CustomerClientService) { }
 
   ngOnInit() {
   }

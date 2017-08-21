@@ -21,7 +21,7 @@ export class CustomerClientService {
 
       this.http.request(req).subscribe(
         (succ: Response) => {
-          debugger;
+
           let data = succ.json();
           console.log(JSON.stringify(data));
           console.log(data);
@@ -32,7 +32,7 @@ export class CustomerClientService {
           subscriber.complete();
         },
         (err: any) => {
-          debugger;
+
           console.log(JSON.stringify(err));
           subscriber.error(err);
         });
@@ -46,7 +46,7 @@ export class CustomerClientService {
     let response = new Observable<Customer>((subscriber: Subscriber<Customer>) => {
       this.http.get('data/customer.json').subscribe(
         (succ: Response) => {
-          debugger;
+
           let data = succ.json();
           console.log(JSON.stringify(data));
           console.log(data);
@@ -57,7 +57,7 @@ export class CustomerClientService {
           subscriber.complete();
         },
         (err: any) => {
-          debugger;
+
           console.log(JSON.stringify(err));
           subscriber.error(err);
         })
@@ -73,7 +73,6 @@ export class CustomerClientService {
   }
 
   private extractData(res: Response) {
-    debugger;
     let body = res.json();
     //we have to return object that fits to type T in Observable<T>
     return body || {};
