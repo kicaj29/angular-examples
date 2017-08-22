@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Customer } from './customer';
 
 @Component({
   selector: 'app-customer',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor() { }
+  private cust: Customer;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.cust = this.route.snapshot.data['cust_data'];
   }
 
 }
