@@ -11,6 +11,10 @@ export let appRoutes: Routes = [
     path: 'http-examples',
     loadChildren: './http-examples/http-examples.module#HttpExamplesModule'
   },
+  {
+    path: 'resolve-examples',
+    loadChildren: './resolve-examples/resolve-examples.module#ResolveExamplesModule'
+  }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
