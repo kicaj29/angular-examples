@@ -9,11 +9,12 @@ import { Customer } from './customer';
 })
 export class CustomerComponent implements OnInit {
 
-  private cust: Customer;
+  cust: Customer;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log("CustomerComponent ngOnInit...");
     this.cust = this.route.snapshot.data['cust_data'];
   }
 
