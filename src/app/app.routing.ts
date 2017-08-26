@@ -14,6 +14,10 @@ export let appRoutes: Routes = [
   {
     path: 'resolve-examples',
     loadChildren: './resolve-examples/resolve-examples.module#ResolveExamplesModule'
+  },
+  {
+    path: 'service-inheritance-examples',
+    loadChildren: './service-inheritance-examples/service-inheritance.module#ServiceInheritenceModule'
   }
 ];
 
