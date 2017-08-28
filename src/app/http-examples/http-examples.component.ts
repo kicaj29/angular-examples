@@ -10,7 +10,7 @@ import { CustomerClientService } from './customer-client.service';
 })
 export class HttpExamplesComponent implements OnInit {
 
-  private viewModel: Customer;
+  viewModel: Customer;
   constructor(private svc: CustomerClientService) { }
 
   ngOnInit() {
