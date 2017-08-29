@@ -1,13 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BaseRequestOptions, HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
 import { MockBackend } from '@angular/http/testing';
-import { myMockBackendServiceProvider } from './http-examples/my-mock-backend.service.provider';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function NgxHttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'ngx-translations/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -17,8 +23,16 @@ import { myMockBackendServiceProvider } from './http-examples/my-mock-backend.se
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     RouterModule,
-    routing
+    routing,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: NgxHttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     MockBackend
