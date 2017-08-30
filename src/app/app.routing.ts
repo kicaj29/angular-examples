@@ -18,6 +18,10 @@ export let appRoutes: Routes = [
   {
     path: 'service-inheritance-examples',
     loadChildren: './service-inheritance-examples/service-inheritance.module#ServiceInheritenceModule'
+  },
+  {
+    path: 'date-examples',
+    loadChildren: './date-examples/date-examples.module#DateExamplesModule'
   }
 ];
 

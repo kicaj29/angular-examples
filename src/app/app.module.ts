@@ -26,6 +26,8 @@ export function NgxHttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     RouterModule,
     routing,
+    //in every lazy loaded module ngx translate requires importing translate module TranslateModule.forChile
+    //but this requirement is because of angular lazy loading mechanism
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
