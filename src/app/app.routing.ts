@@ -22,6 +22,10 @@ export let appRoutes: Routes = [
   {
     path: 'date-examples',
     loadChildren: './date-examples/date-examples.module#DateExamplesModule'
+  },
+  {
+    path: 'forms-examples',
+    loadChildren: './forms-examples/forms-examples.module#FormsExamplesModule'
   }
 ];
 
