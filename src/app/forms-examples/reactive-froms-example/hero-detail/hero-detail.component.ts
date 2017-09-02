@@ -35,21 +35,21 @@ export class HeroDetailComponent implements OnChanges {
       secretLairs: this.fb.array([]), // <-- secretLairs as an empty FormArray
       power: '',
       sidekick: '',
-      heroIdAndName: new MySuperControlValue()
+      genderAndColor: new MySuperControlValue()
     });
   }
 
   /**Angular calls this method whenever @Input() hero changes its value.*/
   ngOnChanges() {
     console.log("HeroDetailComponent: ngOnChanges");
-    let idAndName = new MySuperControlValue();
-    idAndName.value1 = this.hero.id.toString();
-    idAndName.value2 = this.hero.name;
+    let controlValue = new MySuperControlValue();
+    controlValue.value1 = this.hero.gender;
+    controlValue.value2 = this.hero.favoriteColor;
 
     this.heroForm.reset({
       heroName: this.hero.name,
       address: this.hero.addresses[0] || new Address(),
-      heroIdAndName: idAndName
+      genderAndColor: controlValue
     });
     this.setSecretLairs(this.hero.addresses);
   }
@@ -101,7 +101,9 @@ export class HeroDetailComponent implements OnChanges {
       id: this.hero.id,
       name: formModel.heroName as string,
       //addresses: formModel.secretLairs // <-- bad!!! we do not want let leak to outside instance used in view model
-       addresses: secretLairsDeepCopy
+      addresses: secretLairsDeepCopy,
+      gender: formModel.genderAndColor.value1,
+      favoriteColor: formModel.genderAndColor.value2
     };
     return saveHero;
   }
