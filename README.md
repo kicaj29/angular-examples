@@ -44,3 +44,20 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * Provide translations in json file in *locale* folder.
 * In AppComponent you can find way of setting default language and changing it.
 * More you can find here https://github.com/ngx-translate
+
+## Resolve examples
+https://angular.io/api/router/Resolve
+https://blog.thoughtram.io/angular/2016/10/10/resolving-route-data-in-angular-2.html
+
+## Http examples
+https://keyholesoftware.com/2017/01/09/setting-up-angular-2-mockbackend/
+https://angular.io/api/http/testing/MockBackend
+http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backendless-development
+
+## Forms examples
+### Reactive forms examples
+https://angular.io/guide/reactive-forms
+Important classes: FormBuilder, FormGroup, FormControl
+
+## Date examples
+
