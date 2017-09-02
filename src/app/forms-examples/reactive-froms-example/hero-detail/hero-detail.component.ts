@@ -2,6 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Address, Hero, states } from './../data-model';
 import { HeroService } from '../hero.service';
+import { MySuperControlValue } from '../my-super-control/my-super-control.component';
 
 @Component({
   selector: 'hero-detail',
@@ -33,16 +34,22 @@ export class HeroDetailComponent implements OnChanges {
       address: this.fb.group(new Address()),
       secretLairs: this.fb.array([]), // <-- secretLairs as an empty FormArray
       power: '',
-      sidekick: ''
+      sidekick: '',
+      heroIdAndName: new MySuperControlValue()
     });
   }
 
   /**Angular calls this method whenever @Input() hero changes its value.*/
   ngOnChanges() {
     console.log("HeroDetailComponent: ngOnChanges");
+    let idAndName = new MySuperControlValue();
+    idAndName.value1 = this.hero.id.toString();
+    idAndName.value2 = this.hero.name;
+
     this.heroForm.reset({
       heroName: this.hero.name,
-      address: this.hero.addresses[0] || new Address()
+      address: this.hero.addresses[0] || new Address(),
+      heroIdAndName: idAndName
     });
     this.setSecretLairs(this.hero.addresses);
   }

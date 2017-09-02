@@ -6,6 +6,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { ReactiveFromsExampleComponent } from './reactive-froms-example.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroService } from './hero.service';
+import { MySuperControlComponent } from './my-super-control/my-super-control.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { HeroService } from './hero.service';
     ReactiveFormsModule
   ],
   providers: [HeroService],
-  declarations: [ReactiveFromsExampleComponent, HeroDetailComponent, HeroListComponent],
+  declarations: [ReactiveFromsExampleComponent, HeroDetailComponent, HeroListComponent, MySuperControlComponent],
   exports: [ReactiveFromsExampleComponent]
 })
 export class ReactiveFormsExampleModule { }
