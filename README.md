@@ -58,6 +58,7 @@ http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backen
 ### Reactive forms examples
 https://angular.io/guide/reactive-forms
 Important classes: FormBuilder, FormGroup, FormControl
+With *setValue*, you assign every form control value at once, with *patchValue*, you can assign values to specific controls in a FormGroup.
 
 ## Date examples
 

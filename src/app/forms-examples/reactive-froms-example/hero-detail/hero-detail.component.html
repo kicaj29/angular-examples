@@ -45,3 +45,7 @@
 </form>
 <p>Form value: {{ heroForm.value | json }}</p>
 <p>Form status: {{ heroForm.status | json }}</p>
+<p>Name value: {{ heroForm.get('heroName').value }}</p>
+<p>Name pristine: {{ heroForm.get('heroName').pristine }}</p>
+<p>Name untouched: {{ heroForm.get('heroName').untouched }}</p>
+<p>Street value: {{ heroForm.get('address.street').value}}</p>
