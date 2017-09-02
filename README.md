@@ -66,6 +66,7 @@ Includes also example with ControlValueAccessor, helpful links:
 https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2
 https://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html
 https://medium.com/@tarik.nzl/angular-2-custom-form-control-with-validation-json-input-2b4cf9bc2d73
+http://almerosteyn.com/2016/04/linkup-custom-control-to-ngcontrol-ngmodel
 
 ## Date examples
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { ReactiveFromsExampleComponent } from './reactive-froms-example.component';
@@ -11,7 +11,8 @@ import { MySuperControlComponent } from './my-super-control/my-super-control.com
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule //Here needed only to use ngModel in MySuperControlComponent
   ],
   providers: [HeroService],
   declarations: [ReactiveFromsExampleComponent, HeroDetailComponent, HeroListComponent, MySuperControlComponent],
