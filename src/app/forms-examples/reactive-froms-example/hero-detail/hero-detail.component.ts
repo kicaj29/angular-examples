@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Address, Hero, states } from './../data-model';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'hero-detail',
@@ -12,12 +13,14 @@ export class HeroDetailComponent implements OnChanges {
   heroForm: FormGroup;
   @Input() hero: Hero;
   states = states;
+  nameChangeLog: string[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private heroService: HeroService) {
 /*    this.hero = new Hero();
     this.hero.name = "Super hero!!!";
     this.hero.addresses = [];*/
     this.createForm();
+    this.logNameChange();
 /*    this.heroForm.patchValue({
       heroName: this.hero.name,
       address: this.hero.addresses[0] || new Address()
@@ -60,6 +63,40 @@ export class HeroDetailComponent implements OnChanges {
 
   removeLair(index) {
     this.secretLairs.removeAt(index);
+  }
+
+  logNameChange() {
+    const nameControl = this.heroForm.get('heroName');
+    nameControl.valueChanges.forEach(
+      (value: string) => this.nameChangeLog.push(value)
+    );
+  }
+
+  onSubmit() {
+    this.hero = this.prepareSaveHero();
+    this.heroService.updateHero(this.hero).subscribe(/* error handling */);
+    this.ngOnChanges();
+  }
+
+  revert() { this.ngOnChanges(); }
+
+  prepareSaveHero(): Hero {
+    const formModel = this.heroForm.value;
+
+    // deep copy of form model lairs
+    const secretLairsDeepCopy: Address[] = formModel.secretLairs.map(
+      (address: Address) => Object.assign({}, address)
+    );
+
+    // return new `Hero` object containing a combination of original hero value(s)
+    // and deep copies of changed form model values
+    const saveHero: Hero = {
+      id: this.hero.id,
+      name: formModel.heroName as string,
+      //addresses: formModel.secretLairs // <-- bad!!! we do not want let leak to outside instance used in view model
+       addresses: secretLairsDeepCopy
+    };
+    return saveHero;
   }
 
 }

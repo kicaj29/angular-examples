@@ -1,10 +1,16 @@
 <h2>Hero Detail</h2>
 <h3><i>A FormGroup with a single FormControl using FormBuilder</i></h3>
-<form [formGroup]="heroForm" novalidate>
+<form [formGroup]="heroForm" (ngSubmit)="onSubmit()" novalidate>
+  <div style="margin-bottom: 1em">
+    <button [disabled]="heroForm.pristine" class="btn btn-success">Save</button> &nbsp;
+    <button type="reset" (click)="revert()" [disabled]="heroForm.pristine" class="btn btn-danger">Revert</button>
+  </div>
   <div class="form-group">
     <label class="center-block">Name:
       <input class="form-control" formControlName="heroName">
     </label>
+    <h4>Name change log</h4>
+    <div *ngFor="let name of nameChangeLog">{{name}}</div>
   </div>
   <div formGroupName="address" class="well well-lg">
     <h4>Address</h4>
