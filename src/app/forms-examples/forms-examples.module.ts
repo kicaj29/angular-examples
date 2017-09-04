@@ -4,6 +4,7 @@ import { FormsExamplesComponent } from './forms-examples.component';
 import { routing } from './forms-examples.routing';
 import { ReactiveFormsExampleModule } from './reactive-froms-example/reactive-forms-example.module';
 import { TemplateDrivenFormsExampleModule } from './template-driven-forms-example/template-driven-forms-example.module';
+//import { MySuperControlComponent } from './my-super-control/my-super-control.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { TemplateDrivenFormsExampleModule } from './template-driven-forms-exampl
     ReactiveFormsExampleModule,
     TemplateDrivenFormsExampleModule
   ],
-  declarations: [FormsExamplesComponent],
+  declarations: [FormsExamplesComponent/*, MySuperControlComponent*/],
   providers: []
 })
 export class FormsExamplesModule { }
