@@ -1,4 +1,7 @@
 <p>
   forms-examples works!
 </p>
-<app-reactive-froms-example></app-reactive-froms-example>
+<button type="button" (click)="showReactiveForms=true">Show reactive forms</button>
+<button type="button" (click)="showReactiveForms=false">Show template-driven forms</button>
+<app-reactive-froms-example *ngIf="showReactiveForms"></app-reactive-froms-example>
+<template-driven-forms-example *ngIf="!showReactiveForms"></template-driven-forms-example>

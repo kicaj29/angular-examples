@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormsExamplesComponent implements OnInit {
 
-  constructor() { }
+  showReactiveForms: boolean;
+  constructor() {
+    this.showReactiveForms = true;
+  }
 
   ngOnInit() {
   }
