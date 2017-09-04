@@ -56,7 +56,7 @@ http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backen
 
 ## Forms examples
 ### My super control
-Example with a control that works fine for both forms: template driven and reactive forms
+Example with a control that works fine for both forms: template driven and reactive forms  
 https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2  
 https://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html    
 https://medium.com/@tarik.nzl/angular-2-custom-form-control-with-validation-json-input-2b4cf9bc2d73    
