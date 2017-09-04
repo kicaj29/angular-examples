@@ -2,7 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Address, Hero, states } from './../data-model';
 import { HeroService } from '../hero.service';
-import { MySuperControlValue } from '../my-super-control/my-super-control.component';
+import { MySuperControlValue } from '../../my-super-control/my-super-control.component';
 
 @Component({
   selector: 'hero-detail',

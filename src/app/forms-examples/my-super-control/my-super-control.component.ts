@@ -35,16 +35,32 @@ export class MySuperControlComponent implements ControlValueAccessor  {
     this.viewModel = obj;
   }
 
+  /**
+   * Set the function to be called when the control receives a change event.
+   * Angular provides you with a function and asks you to call it whenever there is a change in your component with
+   * the new value so that it can update the control.
+   * @param fn
+   */
   registerOnChange(fn: any): void {
     console.log("CVA: registerOnChange");
-    this.propagateChange = fn;
+    //this.propagateChange = fn;
   }
 
+  /**
+   * The registerOnTouched method is the same as registerOnChange except that you should call her when the control
+   * receives a touch event.
+   * @param fn
+   */
   registerOnTouched(fn: any): void {
     console.log("CVA: registerOnTouched");
-    this.propagateTouched = fn;
+    //this.propagateTouched = fn;
   }
 
+  /**
+   * This function is called when the control status changes to or from DISABLED.
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   * @param {boolean} isDisabled
+   */
   setDisabledState(isDisabled: boolean): void {
     console.log("CVA: isDisabled");
     //throw new Error('Method not implemented.');

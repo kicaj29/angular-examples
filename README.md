@@ -62,7 +62,7 @@ FormGroup functions:
 1. With *setValue*, you assign every form control value at once
 2. With *patchValue*, you can assign values to specific controls in a FormGroup
 3. *reset* method has an optional state value so you can reset the flags and the control values at the same time
-Includes also example with ControlValueAccessor, helpful links:
+Includes also example with ControlValueAccessor, helpful links:  
 https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2  
 https://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html  
 https://medium.com/@tarik.nzl/angular-2-custom-form-control-with-validation-json-input-2b4cf9bc2d73  
