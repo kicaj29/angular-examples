@@ -80,11 +80,18 @@ but in both cases these are __dummy__ function that are never executed.
 In both cases this function is later provided by Angular itself. It is needed only to be able execute typescript transpile.  
 
 The *registerOnTouched* function accepts a callback function which you can call when you want to set your control to touched.    
-This is then managed by Angular 2 by adding the correct touched state and classes to the actual element tag in the DOM. 
+This is then managed by Angular by adding the correct touched state and classes to the actual element tag in the DOM. 
 
 ### My super control
 Example with a control that works fine for both forms: template driven and reactive forms.
 As input value it takes instance of class.
+
+Here we can distinguish two situations:  
+  
+Situation A - control uses the same instance of object (view model) that is used in the form.  
+
+Situation B - control internally creates deep copy of passed object.
+
     
 
 https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2  

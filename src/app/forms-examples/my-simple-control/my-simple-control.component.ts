@@ -41,6 +41,8 @@ export class MySimpleControlComponent implements ControlValueAccessor {
   set value(v: any) {
     if (v !== this.innerValue) {
       this.innerValue = v;
+      //if function onChangeCallback is not called changes done in this control
+      //are not propagated to form that uses this control!!!
       this.onChangeCallback(v);
     }
   }

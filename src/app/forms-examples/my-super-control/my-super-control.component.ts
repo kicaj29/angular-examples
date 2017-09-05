@@ -48,7 +48,7 @@ export class MySuperControlComponent implements ControlValueAccessor  {
    */
   registerOnChange(fn: any): void {
     console.log("CVA: registerOnChange");
-    this.propagateChange = fn;
+    //this.propagateChange = fn;
   }
 
   /**
