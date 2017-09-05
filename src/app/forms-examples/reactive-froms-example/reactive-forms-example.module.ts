@@ -7,12 +7,15 @@ import { ReactiveFromsExampleComponent } from './reactive-froms-example.componen
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroService } from './hero.service';
 import { MySuperControlModule } from '../my-super-control/my-super-control.module';
+import { MySimpleControlModule } from '../my-simple-control/my-simple-control.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MySuperControlModule
+
+    MySuperControlModule,
+    MySimpleControlModule
   ],
   providers: [HeroService],
   declarations: [ReactiveFromsExampleComponent, HeroDetailComponent, HeroListComponent],

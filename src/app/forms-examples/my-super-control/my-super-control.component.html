@@ -7,7 +7,7 @@
     <span>{{viewModel?.value2}}</span>
   </label>
   <br>
-  <label>Val2:
+  <label *ngIf="viewModel">Val2:
     <input [(ngModel)]="viewModel.value2">
   </label>
 </div>

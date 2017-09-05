@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export class MySuperControlValue {
@@ -20,6 +20,8 @@ export const MY_SUPER_CONTROL_VALUE_ACCESSOR: any = {
 })
 export class MySuperControlComponent implements ControlValueAccessor  {
 
+  constructor() { }
+
   viewModel: MySuperControlValue;
 
   propagateChange = (_: any) => {
@@ -30,6 +32,9 @@ export class MySuperControlComponent implements ControlValueAccessor  {
     console.log("CVA: propagateTouched");
   };
 
+  /**This function is also called when we use[(ngModel)] in template-driven forms
+   * @param obj
+   */
   writeValue(obj: any): void {
     console.log("CVA: writeValue");
     this.viewModel = obj;
@@ -43,7 +48,7 @@ export class MySuperControlComponent implements ControlValueAccessor  {
    */
   registerOnChange(fn: any): void {
     console.log("CVA: registerOnChange");
-    //this.propagateChange = fn;
+    this.propagateChange = fn;
   }
 
   /**
@@ -65,9 +70,5 @@ export class MySuperControlComponent implements ControlValueAccessor  {
     console.log("CVA: isDisabled");
     //throw new Error('Method not implemented.');
   }
-
-
-  constructor() { }
-
 
 }

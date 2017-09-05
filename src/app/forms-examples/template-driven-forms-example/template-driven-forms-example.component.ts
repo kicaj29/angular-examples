@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MySuperControlValue } from '../my-super-control/my-super-control.component';
 
 @Component({
   selector: 'template-driven-forms-example',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateDrivenFormsExampleComponent implements OnInit {
 
-  constructor() { }
+  customer : MySuperControlValue;
+  constructor() {
+    this.customer = new MySuperControlValue();
+    this.customer.value1 = "Jacek";
+    this.customer.value2 = "Placek";
+  }
 
   ngOnInit() {
   }

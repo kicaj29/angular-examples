@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TemplateDrivenFormsExampleComponent } from './template-driven-forms-example.component';
 import { MySuperControlModule } from '../my-super-control/my-super-control.module';
+import { FormsModule } from '@angular/forms';
+import { MySimpleControlModule } from '../my-simple-control/my-simple-control.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MySuperControlModule
+    FormsModule,
+
+    MySuperControlModule,
+    MySimpleControlModule
   ],
   declarations: [TemplateDrivenFormsExampleComponent],
   exports: [TemplateDrivenFormsExampleComponent]
