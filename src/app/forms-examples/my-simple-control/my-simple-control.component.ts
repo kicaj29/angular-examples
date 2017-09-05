@@ -48,8 +48,9 @@ export class MySimpleControlComponent implements ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
-    if (obj !== this.innerValue) {
+    if ((obj) && (obj !== this.innerValue)) {
       this.innerValue = obj;
+      console.log("MySimpleControlComponent: writeValue");
     }
   }
 

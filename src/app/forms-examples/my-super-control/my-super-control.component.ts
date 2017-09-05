@@ -25,19 +25,21 @@ export class MySuperControlComponent implements ControlValueAccessor  {
   viewModel: MySuperControlValue;
 
   propagateChange = (_: any) => {
-    console.log("CVA: propagateChange");
+    console.log("MySuperControlComponent: propagateChange");
   };
 
   propagateTouched = (_: any) => {
-    console.log("CVA: propagateTouched");
+    console.log("MySuperControlComponent: propagateTouched");
   };
 
   /**This function is also called when we use[(ngModel)] in template-driven forms
    * @param obj
    */
-  writeValue(obj: any): void {
-    console.log("CVA: writeValue");
-    this.viewModel = obj;
+  writeValue(obj: MySuperControlValue): void {
+    if ((obj) && (this.viewModel !== obj)) {
+      this.viewModel = obj;
+      console.log("MySuperControlComponent: writeValue");
+    }
   }
 
   /**
