@@ -60,7 +60,7 @@ export class MySimpleControlComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    //throw new Error('Method not implemented.');
+
   }
 
 }

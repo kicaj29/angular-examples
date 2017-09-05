@@ -57,28 +57,30 @@ http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backen
 ## Forms examples
 ### My simple control
 Example with a control that works fine for both forms: template driven and reactive forms.  
-As input value it takes string.  
+As input value it takes string. Example of usage is available in *Reactive forms examples* and *Template driven forms*.
 
 The *registerOnChange* accepts a callback function which you can call when changes happen so that you can notify the  
 outside world that the data model has changed. Note that you call it with the changed data model value.  
-The callback function can be set as __declaration__
+The callback function can be set as __declaration__  
+  
 ```typescript
 private onChangeCallback: (_: any) => {
 };
 ```
-in such case we cannot define body of this function, or by __definition__
+    
+in such case we cannot define body of this function (errors in transpile process), or by __definition__  
+  
 ```typescript
 private onChangeCallback = (_: any) => {
   console.log("I will never be executed!!!");
 };
-``` but in both cases these are __dummy__ function that are never executed.
+```  
+    
+but in both cases these are __dummy__ function that are never executed.
 In both cases this function is later provided by Angular itself. It is needed only to be able execute typescript transpile.  
 
 The *registerOnTouched* function accepts a callback function which you can call when you want to set your control to touched.    
-This is then managed by Angular 2 by adding the correct touched state and classes to the actual element tag in the DOM.
-
-__NOTE: Both these functions are later provided by Angular 2 itself.  
-But we need to register dummy functions to be able code and transpile it without errors.__  
+This is then managed by Angular 2 by adding the correct touched state and classes to the actual element tag in the DOM. 
 
 ### My super control
 Example with a control that works fine for both forms: template driven and reactive forms.
@@ -91,17 +93,18 @@ https://medium.com/@tarik.nzl/angular-2-custom-form-control-with-validation-json
 http://almerosteyn.com/2016/04/linkup-custom-control-to-ngcontrol-ngmodel  
 
 ### Reactive forms examples
-https://angular.io/guide/reactive-forms
+Example with reactive forms including usage of own controls.  
+https://angular.io/guide/reactive-forms  
 Important classes: FormBuilder, FormGroup, FormControl, FormArray
-FormGroup functions:
+FormGroup functions:  
 1. With *setValue*, you assign every form control value at once
 2. With *patchValue*, you can assign values to specific controls in a FormGroup
 3. *reset* method has an optional state value so you can reset the flags and the control values at the same time
 Includes also example with ControlValueAccessor.  
 
 ### Template driven forms 
-https://angular.io/guide/forms
-Includes example with using custom control - ControlValueAccessor.  
+Example with template driven forms including usage of own controls.  
+https://angular.io/guide/forms  
 
 ## Date examples
 

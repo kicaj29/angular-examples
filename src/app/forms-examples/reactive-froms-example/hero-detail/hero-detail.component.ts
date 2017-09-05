@@ -35,7 +35,8 @@ export class HeroDetailComponent implements OnChanges {
       secretLairs: this.fb.array([]), // <-- secretLairs as an empty FormArray
       power: '',
       sidekick: '',
-      genderAndColor: new MySuperControlValue()
+      genderAndColor: new MySuperControlValue(),
+      heroNameSimpleCustomControl: ''
     });
   }
 
@@ -49,7 +50,8 @@ export class HeroDetailComponent implements OnChanges {
     this.heroForm.reset({
       heroName: this.hero.name,
       address: this.hero.addresses[0] || new Address(),
-      genderAndColor: controlValue
+      genderAndColor: controlValue,
+      heroNameSimpleCustomControl: this.hero.name
     });
     this.setSecretLairs(this.hero.addresses);
   }
