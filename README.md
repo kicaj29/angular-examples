@@ -127,7 +127,21 @@ This custom control contains also example with custom validator. First step is t
 Next step is to create custom validator *MySuperConrolRangeValidator* that is dedicated only for this control but  
 it uses shared validator logic *numberRangeValidator*.
 If we want support only reactive forms function *validate(c: AbstractControl)* from *Validator* interface can be empty
-but it has to exist to not get exception in run time.
+but it has to exist to not get exception in run time. Usage in reactive forms:  
+
+```typescript
+  createForm() {
+    this.heroForm = this.fb.group({
+      heroName: ['', Validators.required ], // <--- the FormControl called "heroName"
+      address: this.fb.group(new Address()),
+      secretLairs: this.fb.array([]), // <-- secretLairs as an empty FormArray
+      power: '',
+      sidekick: '',
+      genderAndNumber: [new MySuperControlValue(), MySuperConrolRangeValidator(200, 0)],
+      heroNameSimpleCustomControl: ''
+    });
+  }
+```
 
 
 Links:  
