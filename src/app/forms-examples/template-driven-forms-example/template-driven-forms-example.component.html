@@ -1,6 +1,6 @@
 <p>
   template-driven-forms-example works!
 </p>
-<my-super-control [(ngModel)]="customer"></my-super-control>
+<my-super-control [(ngModel)]="customer" [useDeepCopy]=false></my-super-control>
 <my-simple-control [(ngModel)]="customer.value1">Name:</my-simple-control>
 <p>customer: {{ customer | json }}</p>

@@ -32,12 +32,12 @@ export class MySimpleControlComponent implements ControlValueAccessor {
 
   }
 
-  //get accessor
+  //get accessor used only in html template for this control
   get value(): any {
     return this.innerValue;
   };
 
-  //set accessor including call the onchange callback
+  //set accessor including call the onchange callback, used only in html template for this control
   set value(v: any) {
     if (v !== this.innerValue) {
       this.innerValue = v;
@@ -49,6 +49,7 @@ export class MySimpleControlComponent implements ControlValueAccessor {
 
   writeValue(obj: any): void {
     if ((obj) && (obj !== this.innerValue)) {
+      //here we set innerValue and not value because there is no need to call onChangeCallback.
       this.innerValue = obj;
       console.log("MySimpleControlComponent: writeValue");
     }

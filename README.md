@@ -84,8 +84,8 @@ or when we call setValue/patchValue/reset in case of reactive forms.
     this.viewModel = obj;
   }
 ```
-but in both cases these are __dummy__ function that are never executed.
-In both cases this function is later provided by Angular itself. It is needed only to be able execute typescript transpile.  
+but in both cases these are __dummy__ functions that are never executed.
+In both cases these functions are later provided by Angular itself. It is needed only to be able execute typescript transpile.  
 
 The *registerOnTouched* function accepts a callback function which you can call when you want to set your control to touched.    
 This is then managed by Angular by adding the correct touched state and classes to the actual element tag in the DOM. 
@@ -97,8 +97,8 @@ As input value it takes instance of class.
 Here we can distinguish two situations:  
   
 Situation A - control uses the same instance of object (view model) that is used in the form.  
-In such case there is no need register fn in registerOnChange and registerOnTouched because we use the same reference
-as in the form so the changes are automatically visible. This is not the best approach because model in the control
+In such case there is no need to register fn in registerOnChange and registerOnTouched because we use the same reference
+as in the form (outside world) so the changes are automatically propagated up. This is not the best approach because model in the control
 should be encapsulated from the outside (form). 
 
 Situation B - control internally creates deep copy of passed object.

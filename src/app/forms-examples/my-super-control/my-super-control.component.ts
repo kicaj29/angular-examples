@@ -20,9 +20,41 @@ export const MY_SUPER_CONTROL_VALUE_ACCESSOR: any = {
 })
 export class MySuperControlComponent implements ControlValueAccessor  {
 
-  constructor() { }
+  constructor() {
+    this.viewModel = new MySuperControlValue();
+    this.useDeepCopy = false;
+  }
+
+  @Input()
+  useDeepCopy: boolean;
 
   viewModel: MySuperControlValue;
+
+  get val1() {
+    return this.viewModel.value1;
+  }
+
+  set val1(newVal1: string) {
+    if (newVal1 !== this.viewModel.value1){
+      this.viewModel.value1 = newVal1;
+      //this.propagateChange(newVal1); //-> WRONG! it would set the whole object in the form as string not MySuperControlValue!
+      this.propagateChange(this.viewModel);
+    }
+  }
+
+  get val2() {
+    return this.viewModel.value2;
+  }
+
+  set val2(newVal2: string) {
+    debugger;
+    if (newVal2 != this.viewModel.value2){
+      this.viewModel.value2 = newVal2;
+      //this.propagateChange(newVal2); //-> WRONG! it would set the whole object in the form as string not MySuperControlValue!
+      this.propagateChange(this.viewModel);
+    }
+  }
+
 
   propagateChange = (_: any) => {
     console.log("MySuperControlComponent: propagateChange");
@@ -37,7 +69,13 @@ export class MySuperControlComponent implements ControlValueAccessor  {
    */
   writeValue(obj: MySuperControlValue): void {
     if ((obj) && (this.viewModel !== obj)) {
-      this.viewModel = obj;
+      if (this.useDeepCopy){
+        this.viewModel.value1 = obj.value1;
+        this.viewModel.value2 = obj.value2;
+      }
+      else {
+        this.viewModel = obj;
+      }
       console.log("MySuperControlComponent: writeValue");
     }
   }
@@ -49,8 +87,10 @@ export class MySuperControlComponent implements ControlValueAccessor  {
    * @param fn
    */
   registerOnChange(fn: any): void {
-    console.log("CVA: registerOnChange");
-    //this.propagateChange = fn;
+    console.log("MySuperControlComponent: registerOnChange");
+    if (this.useDeepCopy){
+      this.propagateChange = fn;
+    }
   }
 
   /**
@@ -59,8 +99,10 @@ export class MySuperControlComponent implements ControlValueAccessor  {
    * @param fn
    */
   registerOnTouched(fn: any): void {
-    console.log("CVA: registerOnTouched");
-    //this.propagateTouched = fn;
+    console.log("MySuperControlComponent: registerOnTouched");
+    if (this.useDeepCopy){
+      this.propagateTouched = fn;
+    }
   }
 
   /**
@@ -69,8 +111,7 @@ export class MySuperControlComponent implements ControlValueAccessor  {
    * @param {boolean} isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
-    console.log("CVA: isDisabled");
-    //throw new Error('Method not implemented.');
+    console.log("MySuperControlComponent: isDisabled");
   }
 
 }

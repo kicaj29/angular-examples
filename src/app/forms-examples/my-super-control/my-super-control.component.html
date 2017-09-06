@@ -1,13 +1,32 @@
 <div class="my-super-control">
-  <label>Val1:
-    <span>{{viewModel?.value1}}</span>
-  </label>
-  <br>
-  <label>Val2:
-    <span>{{viewModel?.value2}}</span>
-  </label>
-  <br>
-  <label *ngIf="viewModel">Val2:
-    <input [(ngModel)]="viewModel.value2">
-  </label>
+  <div *ngIf="!useDeepCopy">
+    <label>USE THE SAME INSTANCE</label>
+    <br>
+    <label>Val1:
+      <span>{{viewModel?.value1}}</span>
+    </label>
+    <br>
+    <label>Val2:
+      <span>{{viewModel?.value2}}</span>
+    </label>
+    <br>
+    <label *ngIf="viewModel">Val2:
+      <input [(ngModel)]="viewModel.value2">
+    </label>
+  </div>
+  <div *ngIf="useDeepCopy">
+    <label>USE DEEP COPY</label>
+    <br>
+    <label>Val1:
+      <span>{{val1}}</span>
+    </label>
+    <br>
+    <label>Val2:
+      <span>{{val2}}</span>
+    </label>
+    <br>
+    <label *ngIf="viewModel">Val2:
+      <input [(ngModel)]="val2">
+    </label>
+  </div>
 </div>
