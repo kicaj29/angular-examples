@@ -18,6 +18,8 @@ export class MySimpleControlComponent implements ControlValueAccessor {
   //The internal data model
   private innerValue: any = '';
 
+  isDisabled: boolean;
+
   //Placeholders for the callbacks which are later provided
   //by the Control Value Accessor
   private onTouchedCallback: () => {
@@ -68,7 +70,7 @@ export class MySimpleControlComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-
+    this.isDisabled = isDisabled;
   }
 
 }

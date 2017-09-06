@@ -3,7 +3,7 @@ export class Hero {
   name = '';
   addresses: Address[];
   gender = '';
-  favoriteColor = '';
+  favoriteNumber = 100;
 
 }
 
@@ -19,7 +19,7 @@ export const heroes: Hero[] = [
     id: 1,
     name: 'Whirlwind',
     gender: 'Male',
-    favoriteColor: 'Blue',
+    favoriteNumber: 23,
     addresses: [
       {street: '123 Main',  city: 'Anywhere', state: 'CA',  zip: '94801'},
       {street: '456 Maple', city: 'Somewhere', state: 'VA', zip: '23226'},
@@ -29,7 +29,7 @@ export const heroes: Hero[] = [
     id: 2,
     name: 'Bombastic',
     gender: 'Female',
-    favoriteColor: 'Red',
+    favoriteNumber: 43,
     addresses: [
       {street: '789 Elm',  city: 'Smallville', state: 'OH',  zip: '04501'},
     ]
@@ -38,7 +38,7 @@ export const heroes: Hero[] = [
     id: 3,
     name: 'Magneta',
     gender: 'Female',
-    favoriteColor: 'Orange',
+    favoriteNumber: 57,
     addresses: [ ]
   },
 ];

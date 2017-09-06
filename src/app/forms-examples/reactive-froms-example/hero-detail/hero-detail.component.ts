@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Address, Hero, states } from './../data-model';
 import { HeroService } from '../hero.service';
 import { MySuperControlValue } from '../../my-super-control/my-super-control.component';
+import { createNumberRangeValidator } from '../../number-range-validator.directive';
 
 @Component({
   selector: 'hero-detail',
@@ -35,7 +36,7 @@ export class HeroDetailComponent implements OnChanges {
       secretLairs: this.fb.array([]), // <-- secretLairs as an empty FormArray
       power: '',
       sidekick: '',
-      genderAndColor: new MySuperControlValue(),
+      genderAndNumber: [new MySuperControlValue(), createNumberRangeValidator(200, 0)],
       heroNameSimpleCustomControl: ''
     });
   }
@@ -45,12 +46,12 @@ export class HeroDetailComponent implements OnChanges {
     console.log("HeroDetailComponent: ngOnChanges");
     let controlValue = new MySuperControlValue();
     controlValue.value1 = this.hero.gender;
-    controlValue.value2 = this.hero.favoriteColor;
+    controlValue.value2 = this.hero.favoriteNumber;
 
     this.heroForm.reset({
       heroName: this.hero.name,
       address: this.hero.addresses[0] || new Address(),
-      genderAndColor: controlValue,
+      genderAndNumber: controlValue,
       heroNameSimpleCustomControl: this.hero.name
     });
     this.setSecretLairs(this.hero.addresses);
@@ -104,8 +105,8 @@ export class HeroDetailComponent implements OnChanges {
       name: formModel.heroName as string,
       //addresses: formModel.secretLairs // <-- bad!!! we do not want let leak to outside instance used in view model
       addresses: secretLairsDeepCopy,
-      gender: formModel.genderAndColor.value1,
-      favoriteColor: formModel.genderAndColor.value2
+      gender: formModel.genderAndNumber.value1,
+      favoriteNumber: formModel.genderAndNumber.value2
     };
     return saveHero;
   }

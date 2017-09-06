@@ -11,7 +11,7 @@
     </label>
     <label class="center-block">My super control:
       <br>
-      <my-super-control formControlName="genderAndColor" [useDeepCopy]=true></my-super-control>
+      <my-super-control formControlName="genderAndNumber" [useDeepCopy]=true></my-super-control>
     </label>
     <my-simple-control formControlName="heroNameSimpleCustomControl">Name (from simple custom control):</my-simple-control>
     <h4>Name change log</h4>
@@ -94,5 +94,5 @@
 <p>Name pristine: {{ heroForm.get('heroName').pristine }}</p>
 <p>Name untouched: {{ heroForm.get('heroName').untouched }}</p>
 <p>Street value: {{ heroForm.get('address.street').value}}</p>
-<p>Status genderAndColor control: {{heroForm.get('genderAndColor').status}}</p>
-<p>Untouched genderAndColor control: {{heroForm.get('genderAndColor').untouched}}</p>
+<p>Status genderAndNumber control: {{heroForm.get('genderAndNumber').status}}</p>
+<p>Untouched genderAndNumber control: {{heroForm.get('genderAndNumber').untouched}}</p>

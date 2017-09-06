@@ -1,9 +1,10 @@
-import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef, Input, OnChanges } from '@angular/core';
+import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
+import { createNumberRangeValidator } from '../number-range-validator.directive';
 
 export class MySuperControlValue {
   value1: string;
-  value2: string;
+  value2: number;
 }
 
 export const MY_SUPER_CONTROL_VALUE_ACCESSOR: any = {
@@ -12,13 +13,39 @@ export const MY_SUPER_CONTROL_VALUE_ACCESSOR: any = {
   multi: true
 };
 
+export const MY_SUPER_RANGE_VALIDATOR: any = {
+  provide: NG_VALIDATORS,
+  useExisting: forwardRef(() => MySuperControlComponent),
+  multi: true
+}
+
 @Component({
   selector: 'my-super-control',
   templateUrl: './my-super-control.component.html',
   styleUrls: ['./my-super-control.component.css'],
-  providers: [ MY_SUPER_CONTROL_VALUE_ACCESSOR ]
+  providers: [ MY_SUPER_CONTROL_VALUE_ACCESSOR, MY_SUPER_RANGE_VALIDATOR ]
 })
-export class MySuperControlComponent implements ControlValueAccessor  {
+export class MySuperControlComponent implements ControlValueAccessor, OnChanges, Validator {
+
+  validateFn: Function;
+
+  validate(c: AbstractControl): { [key: string]: any; } {
+    debugger;
+    if (this.validateFn){
+      return this.validateFn(c);
+    }
+  }
+
+  registerOnValidatorChange(fn: () => void): void {
+    console.log("MySuperControlComponent: registerOnValidatorChange");
+  }
+
+  ngOnChanges(changes) {
+    debugger;
+    if (changes.rangeMax || changes.rangeMin) {
+      this.validateFn = createNumberRangeValidator(this.rangeMax, this.rangeMin);
+    }
+  }
 
   constructor() {
     this.viewModel = new MySuperControlValue();
@@ -26,9 +53,17 @@ export class MySuperControlComponent implements ControlValueAccessor  {
   }
 
   @Input()
+  rangeMax;
+
+  @Input()
+  rangeMin;
+
+  @Input()
   useDeepCopy: boolean;
 
   viewModel: MySuperControlValue;
+  isDisabled: boolean;
+
 
   get val1() {
     return this.viewModel.value1;
@@ -42,11 +77,11 @@ export class MySuperControlComponent implements ControlValueAccessor  {
     }
   }
 
-  get val2() {
+  get val2() : number {
     return this.viewModel.value2;
   }
 
-  set val2(newVal2: string) {
+  set val2(newVal2: number) {
     debugger;
     if (newVal2 != this.viewModel.value2){
       this.viewModel.value2 = newVal2;
@@ -103,7 +138,7 @@ export class MySuperControlComponent implements ControlValueAccessor  {
    */
   registerOnTouched(fn: any): void {
     console.log("MySuperControlComponent: registerOnTouched");
-    if (this.useDeepCopy){
+    if (this.useDeepCopy) {
       this.propagateTouched = fn;
     }
   }
@@ -115,6 +150,7 @@ export class MySuperControlComponent implements ControlValueAccessor  {
    */
   setDisabledState(isDisabled: boolean): void {
     console.log("MySuperControlComponent: isDisabled");
+    this.isDisabled = isDisabled;
   }
 
 }

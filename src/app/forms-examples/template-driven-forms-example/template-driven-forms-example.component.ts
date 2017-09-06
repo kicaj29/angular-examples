@@ -12,7 +12,7 @@ export class TemplateDrivenFormsExampleComponent implements OnInit {
   constructor() {
     this.customer = new MySuperControlValue();
     this.customer.value1 = "Jacek";
-    this.customer.value2 = "Placek";
+    this.customer.value2 =  26;
   }
 
   ngOnInit() {

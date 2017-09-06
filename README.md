@@ -122,10 +122,19 @@ If we run this with single field value there is no exception but the view model 
 
 To switch between situation A and B use setting __useDeepCopy__ from the MySuperControlComponent.    
 
+__Validation__  
+This custom control contains also example with custom validator.
+
+Links:  
+
 https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2  
+https://www.domstamand.com/custom-control-validation-in-angular    
 https://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html    
-https://medium.com/@tarik.nzl/angular-2-custom-form-control-with-validation-json-input-2b4cf9bc2d73    
+https://medium.com/@tarik.nzl/angular-2-custom-form-control-with-validation-json-input-2b4cf9bc2d73  
+https://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html  
 http://almerosteyn.com/2016/04/linkup-custom-control-to-ngcontrol-ngmodel  
+https://www.codeproject.com/Articles/1121101/Angular-custom-component-with-validation-for-ban  
+http://blog.rangle.io/angular-2-ngmodel-and-custom-form-components  
 
 ### Reactive forms examples
 Example with reactive forms including usage of own controls.  

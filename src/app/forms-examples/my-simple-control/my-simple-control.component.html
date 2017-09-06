@@ -1,5 +1,5 @@
 <div>
   <label><ng-content></ng-content>
-    <input [(ngModel)]="value" (blur)="onBlur()">
+    <input [(ngModel)]="value" (blur)="onBlur()" [disabled]="isDisabled">
   </label>
 </div>
