@@ -55,6 +55,12 @@ https://angular.io/api/http/testing/MockBackend
 http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backendless-development
 
 ## Forms examples
+This is bigger chapter that covers:
+1. Example with reactive forms
+2. Example with template driven forms
+3. Simple custom control and usage in reactive and template driven forms
+4. Complex custom control including custom validation and usage in reactive and template driven forms
+
 ### My simple control
 Example with a control that works fine for both forms: template driven and reactive forms.  
 As input value it takes string. Example of usage is available in *Reactive forms examples* and *Template driven forms*.
@@ -99,8 +105,8 @@ Usually we should call this registered function in *onBlur* handler but it is up
       this.onTouchedCallback();
     };
 ```
-Good example is in MySuperControlComponent where we handle control with 2 inputs. In reactive forms example 
-we you can observe how change value *untouched* true/false in HeroDetailComponent view.
+Good example is in *MySuperControlComponent* where we handle control with 2 inputs. In reactive forms example 
+we can observe how changes value *untouched* true/false in HeroDetailComponent view.
 
 
 ### My super control
