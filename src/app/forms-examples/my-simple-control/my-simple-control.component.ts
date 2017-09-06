@@ -32,6 +32,10 @@ export class MySimpleControlComponent implements ControlValueAccessor {
 
   }
 
+  onBlur() {
+    this.onTouchedCallback();
+  }
+
   //get accessor used only in html template for this control
   get value(): any {
     return this.innerValue;

@@ -55,12 +55,15 @@ export class MySuperControlComponent implements ControlValueAccessor  {
     }
   }
 
+  onBlur() {
+    this.propagateTouched();
+  }
 
   propagateChange = (_: any) => {
     console.log("MySuperControlComponent: propagateChange");
   };
 
-  propagateTouched = (_: any) => {
+  propagateTouched = () => {
     console.log("MySuperControlComponent: propagateTouched");
   };
 

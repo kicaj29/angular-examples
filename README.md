@@ -87,8 +87,21 @@ or when we call setValue/patchValue/reset in case of reactive forms.
 but in both cases these are __dummy__ functions that are never executed.
 In both cases these functions are later provided by Angular itself. It is needed only to be able execute typescript transpile.  
 
-The *registerOnTouched* function accepts a callback function which you can call when you want to set your control to touched.    
+The *registerOnTouched* function accepts a callback function which you can call when you want to set your control to touched.   
 This is then managed by Angular by adding the correct touched state and classes to the actual element tag in the DOM. 
+Usually we should call this registered function in *onBlur* handler but it is up to specific control implementation.   
+```typescript
+  registerOnTouched(fn: any): void {
+    this.onTouchedCallback = fn;
+  }
+  
+  onBlur() {
+      this.onTouchedCallback();
+    };
+```
+Good example is in MySuperControlComponent where we handle control with 2 inputs. In reactive forms example 
+we you can observe how change value *untouched* true/false in HeroDetailComponent view.
+
 
 ### My super control
 Example with a control that works fine for both forms: template driven and reactive forms.
@@ -107,9 +120,7 @@ It is also mandatory to create set/get for every single field to call in set the
 NOTE: the call back function should be called with instance of the whole deep copy object and not with value of single field.  
 If we run this with single field value there is no exception but the view model in the outside world change type!!!
 
-To switch between situation A and B use setting __useDeepCopy__ from the MySuperControlComponent.
-
-    
+To switch between situation A and B use setting __useDeepCopy__ from the MySuperControlComponent.    
 
 https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2  
 https://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html    

@@ -1,5 +1,5 @@
 <div>
   <label><ng-content></ng-content>
-    <input [(ngModel)]="value">
+    <input [(ngModel)]="value" (blur)="onBlur()">
   </label>
 </div>

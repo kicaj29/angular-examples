@@ -11,7 +11,7 @@
     </label>
     <br>
     <label *ngIf="viewModel">Val2:
-      <input [(ngModel)]="viewModel.value2">
+      <input [(ngModel)]="viewModel.value2" (blur)="onBlur()">
     </label>
   </div>
   <div *ngIf="useDeepCopy">
@@ -26,7 +26,7 @@
     </label>
     <br>
     <label *ngIf="viewModel">Val2:
-      <input [(ngModel)]="val2">
+      <input [(ngModel)]="val2" (blur)="onBlur()">
     </label>
   </div>
 </div>
