@@ -123,7 +123,12 @@ If we run this with single field value there is no exception but the view model 
 To switch between situation A and B use setting __useDeepCopy__ from the MySuperControlComponent.    
 
 __Validation__  
-This custom control contains also example with custom validator.
+This custom control contains also example with custom validator. First step is to implement interface *Validator*.  
+Next step is to create custom validator *MySuperConrolRangeValidator* that is dedicated only for this control but  
+it uses shared validator logic *numberRangeValidator*.
+If we want support only reactive forms function *validate(c: AbstractControl)* from *Validator* interface can be empty
+but it has to exist to not get exception in run time.
+
 
 Links:  
 

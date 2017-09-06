@@ -1,6 +1,5 @@
 import { Component, forwardRef, Input, OnChanges } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
-import { createNumberRangeValidator } from '../number-range-validator.directive';
 
 export class MySuperControlValue {
   value1: string;
@@ -29,6 +28,7 @@ export class MySuperControlComponent implements ControlValueAccessor, OnChanges,
 
   validateFn: Function;
 
+
   validate(c: AbstractControl): { [key: string]: any; } {
     debugger;
     if (this.validateFn){
@@ -43,7 +43,7 @@ export class MySuperControlComponent implements ControlValueAccessor, OnChanges,
   ngOnChanges(changes) {
     debugger;
     if (changes.rangeMax || changes.rangeMin) {
-      this.validateFn = createNumberRangeValidator(this.rangeMax, this.rangeMin);
+      //this.validateFn = createNumberRangeValidator(this.rangeMax, this.rangeMin);
     }
   }
 

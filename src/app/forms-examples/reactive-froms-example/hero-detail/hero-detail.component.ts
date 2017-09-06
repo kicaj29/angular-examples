@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Address, Hero, states } from './../data-model';
 import { HeroService } from '../hero.service';
 import { MySuperControlValue } from '../../my-super-control/my-super-control.component';
-import { createNumberRangeValidator } from '../../number-range-validator.directive';
+import { MySuperConrolRangeValidator } from '../../my-super-control/my-super-control-range-validator';
 
 @Component({
   selector: 'hero-detail',
@@ -36,7 +36,7 @@ export class HeroDetailComponent implements OnChanges {
       secretLairs: this.fb.array([]), // <-- secretLairs as an empty FormArray
       power: '',
       sidekick: '',
-      genderAndNumber: [new MySuperControlValue(), createNumberRangeValidator(200, 0)],
+      genderAndNumber: [new MySuperControlValue(), MySuperConrolRangeValidator(200, 0)],
       heroNameSimpleCustomControl: ''
     });
   }
