@@ -97,11 +97,17 @@ As input value it takes instance of class.
 Here we can distinguish two situations:  
   
 Situation A - control uses the same instance of object (view model) that is used in the form.  
-In such case there is no need to register fn in registerOnChange and registerOnTouched because we use the same reference
+In such case there is no need to register fn in *registerOnChange* and *registerOnTouched* because we use the same reference
 as in the form (outside world) so the changes are automatically propagated up. This is not the best approach because model in the control
 should be encapsulated from the outside (form). 
 
 Situation B - control internally creates deep copy of passed object.
+In such case functions *registerOnChange* and *registerOnTouched* must register call back functions.
+It is also mandatory to create set/get for every single field to call in set the call back function for change.  
+NOTE: the call back function should be called with instance of the whole deep copy object and not with value of single field.  
+If we run this with single field value there is no exception but the view model in the outside world change type!!!
+
+To switch between situation A and B use setting __useDeepCopy__ from the MySuperControlComponent.
 
     
 
