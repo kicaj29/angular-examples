@@ -184,6 +184,7 @@ http://blog.rangle.io/angular-2-ngmodel-and-custom-form-components
 http://www.talkinghightech.com/en/angular-2-building-custom-validator  
 https://stackoverflow.com/questions/42891017/angular2-custom-template-validator-has-stale-values   
 https://alligator.io/angular/async-validators/  
+https://plnkr.co/edit/Vo1Kf3uGPjHD1RuDrzrk?p=preview (async validator)
 
 ### Reactive forms examples
 Example with reactive forms including usage of own controls.  
