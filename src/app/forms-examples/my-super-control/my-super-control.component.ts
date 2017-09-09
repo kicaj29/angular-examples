@@ -32,6 +32,7 @@ export class MySuperControlComponent implements ControlValueAccessor, OnChanges,
 
   validate(c: AbstractControl): { [key: string]: any; } {
     if (this.validateFn){
+      debugger;
       return this.validateFn(c);
     }
   }

@@ -56,8 +56,8 @@ http://jasonwatmore.com/post/2016/11/24/angular-2-mockbackend-example-for-backen
 
 ## Forms examples
 This is bigger chapter that covers:
-1. Simple custom control and usage in reactive and template driven forms
-2. Complex custom control including custom validation and usage in reactive and template driven forms
+1. Simple custom control including multiple custom validators and usage in reactive and template driven forms
+2. Complex custom control including multiple custom validators and usage in reactive and template driven forms
 2. Example with reactive forms 
 4. Example with template driven forms  
 
@@ -164,6 +164,12 @@ but I am not sure if it is correct because if I do not use it this example is al
 
 This control has also another dedicated directive *MySuperControlForbiddenValueValidatorDirective* that implements *Validator* interface.
 In case we want use this validator in reactive forms we pass *superforbiddenValueValidator* as array element when we create form.
+In case we want use this validator in template-driven forms we pass is as attribute
+```html
+<my-super-control name="nameSuperControl" #mySuperControl="ngModel" [(ngModel)]="customer" [useDeepCopy]=true [rangeMin]="50" [rangeMax]="250" superForbiddenValue=123></my-super-control>
+```
+It also shows that validation can be embedded directly in the custom control (*MySuperConrolRangeValidator*) or can be handled outside of this control (*MySuperControlForbiddenValueValidatorDirective*).
+First is called function *validate* and next other validators.
 
 Links:  
 
