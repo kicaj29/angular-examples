@@ -8,6 +8,7 @@ import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroService } from './hero.service';
 import { MySuperControlModule } from '../my-super-control/my-super-control.module';
 import { MySimpleControlModule } from '../my-simple-control/my-simple-control.module';
+import { SharedValidatorsModule } from '../shared-validators/shared-validators.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { MySimpleControlModule } from '../my-simple-control/my-simple-control.mo
     ReactiveFormsModule,
 
     MySuperControlModule,
-    MySimpleControlModule
+    MySimpleControlModule,
+    SharedValidatorsModule
   ],
   providers: [HeroService],
   declarations: [ReactiveFromsExampleComponent, HeroDetailComponent, HeroListComponent],

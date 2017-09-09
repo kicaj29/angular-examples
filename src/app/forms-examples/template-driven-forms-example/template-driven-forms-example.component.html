@@ -3,12 +3,12 @@
 </p>
 <form (ngSubmit)="submit()" #myForm="ngForm">
   <label>Field1</label>
-  <input type="text" required [(ngModel)]="field1" name="field1Name" #field1Model="ngModel">
-  <my-super-control name="nameSuperControl" #mySuperControl="ngModel" [(ngModel)]="customer" [useDeepCopy]=true [rangeMin]="50" [rangeMax]="250"></my-super-control>
-  <my-simple-control required name="nameSimpleControl" [(ngModel)]="customer.value1" #mySimpleControl="ngModel">Name:</my-simple-control>
+  <input type="text" required [(ngModel)]="field1" name="field1Name" #field1Model="ngModel" forbiddenValue="dupa">
+  <my-simple-control required name="nameSimpleControl" [(ngModel)]="customer.value1" #mySimpleControl="ngModel" forbiddenValue="dupa">Name:</my-simple-control>
+  <my-super-control name="nameSuperControl" #mySuperControl="ngModel" [(ngModel)]="customer" [useDeepCopy]=true [rangeMin]="50" [rangeMax]="250" superForbiddenValue=123></my-super-control>
   <div>FIELD 1 IS VALID: {{field1Model.valid}}</div>
-  <div>MY SUPER CONTROL IS VALID: {{mySuperControl.valid}}</div>
   <div>MY SIMPLE CONTROL IS VALID: {{mySimpleControl.valid}}</div>
+  <div>MY SUPER CONTROL IS VALID: {{mySuperControl.valid}}</div>
   <div>MY FROM IS VALID: {{myForm.valid}}</div>
   <p>Customer: {{ customer| json }}</p>
   <button type="submit">Submit</button>

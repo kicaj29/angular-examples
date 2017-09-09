@@ -5,7 +5,6 @@ import { ReactiveFormsExampleModule } from './reactive-froms-example/reactive-fo
 import { TemplateDrivenFormsExampleModule } from './template-driven-forms-example/template-driven-forms-example.module';
 import { FormsModule } from '@angular/forms';
 import { FormsExamplesComponent } from './forms-examples.component';
-import { MySimpleControlComponent } from './my-simple-control/my-simple-control.component';
 
 @NgModule({
   imports: [

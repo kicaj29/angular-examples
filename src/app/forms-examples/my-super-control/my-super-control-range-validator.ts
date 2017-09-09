@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { MySuperControlValue } from './my-super-control.component';
-import { numberRangeValidator } from '../shared-validators/number-range-validator.directive';
+import { numberRangeValidator } from '../shared-validators/number-range-validator';
 
 export function MySuperConrolRangeValidator(maxValue, minValue) {
   return function validateNumberRange(c: FormControl) {

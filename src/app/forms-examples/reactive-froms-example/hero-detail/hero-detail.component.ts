@@ -4,6 +4,7 @@ import { Address, Hero, states } from './../data-model';
 import { HeroService } from '../hero.service';
 import { MySuperControlValue } from '../../my-super-control/my-super-control.component';
 import { MySuperConrolRangeValidator } from '../../my-super-control/my-super-control-range-validator';
+import { superforbiddenValueValidator } from '../../my-super-control/my-super-control-forbidden-value-validator.directive';
 
 @Component({
   selector: 'hero-detail',
@@ -36,7 +37,9 @@ export class HeroDetailComponent implements OnChanges {
       secretLairs: this.fb.array([]), // <-- secretLairs as an empty FormArray
       power: '',
       sidekick: '',
-      genderAndNumber: [new MySuperControlValue(), MySuperConrolRangeValidator(200, 0)],
+      genderAndNumber: [new MySuperControlValue(),
+        [MySuperConrolRangeValidator(200, 0), superforbiddenValueValidator(123)] //synchronous validators
+      ],
       heroNameSimpleCustomControl: ''
     });
   }

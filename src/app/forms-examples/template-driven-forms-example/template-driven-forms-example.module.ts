@@ -4,6 +4,7 @@ import { TemplateDrivenFormsExampleComponent } from './template-driven-forms-exa
 import { MySuperControlModule } from '../my-super-control/my-super-control.module';
 import { FormsModule } from '@angular/forms';
 import { MySimpleControlModule } from '../my-simple-control/my-simple-control.module';
+import { SharedValidatorsModule } from '../shared-validators/shared-validators.module';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { MySimpleControlModule } from '../my-simple-control/my-simple-control.mo
     FormsModule,
 
     MySuperControlModule,
-    MySimpleControlModule
+    MySimpleControlModule,
+    SharedValidatorsModule
   ],
   declarations: [TemplateDrivenFormsExampleComponent],
   exports: [TemplateDrivenFormsExampleComponent]

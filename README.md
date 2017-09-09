@@ -108,6 +108,10 @@ Usually we should call this registered function in *onBlur* handler but it is up
 Good example is in *MySuperControlComponent* where we handle control with 2 inputs. In reactive forms example 
 we can observe how changes value *untouched* true/false in HeroDetailComponent view.
 
+__Validation__    
+Example with existing validator is available in template-driven forms (required validator).
+*ForbiddenValidatorDirective* is validator that works fine for standard input but also for any custom control that return string,  
+so we can use this validator in *MySimpleControlComponent*.
 
 ### My super control
 Example with a control that works fine for both forms: template driven and reactive forms.
@@ -157,6 +161,9 @@ If we want support template-driven forms in function *validate(c: AbstractContro
 I am not sure when we should use *registerOnValidatorChange*. This function has very limited documentation
 but here I found answer https://stackoverflow.com/questions/42891017/angular2-custom-template-validator-has-stale-values  
 but I am not sure if it is correct because if I do not use it this example is also working fine. 
+
+This control has also another dedicated directive *MySuperControlForbiddenValueValidatorDirective* that implements *Validator* interface.
+In case we want use this validator in reactive forms we pass *superforbiddenValueValidator* as array element when we create form.
 
 Links:  
 
