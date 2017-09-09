@@ -4,11 +4,15 @@ import { MySuperControlValue } from './my-super-control.component';
 
 export function superforbiddenValueValidator(forbiddenValue: number): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} => {
-    debugger;
     let val = <MySuperControlValue>control.value;
-    return forbiddenValue == val.value2 ? {'forbiddenValue': {value: forbiddenValue}} : null;
+    if (val) {
+      return forbiddenValue == val.value2 ? {'forbiddenValue': {value: forbiddenValue}} : null;
+    }
+    else {
+      return null;
+    }
   };
-}
+}1
 
 @Directive({
   selector: '[superForbiddenValue]',
@@ -18,7 +22,6 @@ export class MySuperControlForbiddenValueValidatorDirective implements Validator
   @Input() superForbiddenValue: number;
 
   validate(control: AbstractControl): {[key: string]: any} {
-    debugger;
     return this.superForbiddenValue ? superforbiddenValueValidator(this.superForbiddenValue)(control)
       : null;
   }
