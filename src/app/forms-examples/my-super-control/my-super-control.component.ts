@@ -1,5 +1,6 @@
 import { Component, forwardRef, Input, OnChanges } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator } from '@angular/forms';
+import { MySuperConrolRangeValidator } from './my-super-control-range-validator';
 
 export class MySuperControlValue {
   value1: string;
@@ -27,10 +28,9 @@ export const MY_SUPER_RANGE_VALIDATOR: any = {
 export class MySuperControlComponent implements ControlValueAccessor, OnChanges, Validator {
 
   validateFn: Function;
-
+  private _onChange: () => void;
 
   validate(c: AbstractControl): { [key: string]: any; } {
-    debugger;
     if (this.validateFn){
       return this.validateFn(c);
     }
@@ -38,12 +38,12 @@ export class MySuperControlComponent implements ControlValueAccessor, OnChanges,
 
   registerOnValidatorChange(fn: () => void): void {
     console.log("MySuperControlComponent: registerOnValidatorChange");
+    this._onChange = fn;
   }
 
   ngOnChanges(changes) {
-    debugger;
     if (changes.rangeMax || changes.rangeMin) {
-      //this.validateFn = createNumberRangeValidator(this.rangeMax, this.rangeMin);
+      this.validateFn = MySuperConrolRangeValidator(this.rangeMax, this.rangeMin);
     }
   }
 
@@ -74,6 +74,7 @@ export class MySuperControlComponent implements ControlValueAccessor, OnChanges,
       this.viewModel.value1 = newVal1;
       //this.propagateChange(newVal1); //-> WRONG! it would set the whole object in the form as string not MySuperControlValue!
       this.propagateChange(this.viewModel);
+      if (this._onChange) this._onChange();
     }
   }
 
@@ -82,11 +83,12 @@ export class MySuperControlComponent implements ControlValueAccessor, OnChanges,
   }
 
   set val2(newVal2: number) {
-    debugger;
+    console.log("set val2");
     if (newVal2 != this.viewModel.value2){
       this.viewModel.value2 = newVal2;
       //this.propagateChange(newVal2); //-> WRONG! it would set the whole object in the form as string not MySuperControlValue!
       this.propagateChange(this.viewModel);
+      if (this._onChange) this._onChange();
     }
   }
 

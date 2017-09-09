@@ -126,14 +126,18 @@ It is also mandatory to create set/get for every single field to call in set the
 NOTE: the call back function should be called with instance of the whole deep copy object and not with value of single field.  
 If we run this with single field value there is no exception but the view model in the outside world change type!!!
 
-To switch between situation A and B use setting __useDeepCopy__ from the MySuperControlComponent.    
+To switch between situation A and B use setting __useDeepCopy__ from the MySuperControlComponent.   
+NOTE: If we do not create deep copy __setters from component are not executed, it means that to have working well validation we have to create deep copy always!!!__
 
 __Validation__  
 This custom control contains also example with custom validator. First step is to implement interface *Validator*.  
 Next step is to create custom validator *MySuperConrolRangeValidator* that is dedicated only for this control but  
 it uses shared validator logic *numberRangeValidator*.
 If we want support only reactive forms function *validate(c: AbstractControl)* from *Validator* interface can be empty
-but it has to exist to not get exception in run time. Usage in reactive forms:  
+but it has to exists to not get exception in run time. Function *validate(c: AbstractControl)* is executed after execution
+MySuperConrolRangeValidator so here we can add some additional control validations if needed.
+
+Usage in reactive forms. Usage:
 
 ```typescript
   createForm() {
@@ -148,7 +152,11 @@ but it has to exist to not get exception in run time. Usage in reactive forms:
     });
   }
 ```
+If we want support template-driven forms in function *validate(c: AbstractControl)* we have to return not null value if validation failed.
 
+I am not sure when we should use *registerOnValidatorChange*. This function has very limited documentation
+but here I found answer https://stackoverflow.com/questions/42891017/angular2-custom-template-validator-has-stale-values  
+but I am not sure if it is correct because if I do not use it this example is also working fine. 
 
 Links:  
 
@@ -159,7 +167,9 @@ https://medium.com/@tarik.nzl/angular-2-custom-form-control-with-validation-json
 https://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html  
 http://almerosteyn.com/2016/04/linkup-custom-control-to-ngcontrol-ngmodel  
 https://www.codeproject.com/Articles/1121101/Angular-custom-component-with-validation-for-ban  
-http://blog.rangle.io/angular-2-ngmodel-and-custom-form-components  
+http://blog.rangle.io/angular-2-ngmodel-and-custom-form-components 
+http://www.talkinghightech.com/en/angular-2-building-custom-validator  
+https://stackoverflow.com/questions/42891017/angular2-custom-template-validator-has-stale-values   
 
 ### Reactive forms examples
 Example with reactive forms including usage of own controls.  

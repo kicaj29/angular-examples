@@ -9,6 +9,9 @@ import { MySuperControlValue } from '../my-super-control/my-super-control.compon
 export class TemplateDrivenFormsExampleComponent implements OnInit {
 
   customer : MySuperControlValue;
+  field1: string;
+  //@ViewChild('myForm') form: Form;
+
   constructor() {
     this.customer = new MySuperControlValue();
     this.customer.value1 = "Jacek";
@@ -16,6 +19,10 @@ export class TemplateDrivenFormsExampleComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  submit(){
+    debugger;
   }
 
 }

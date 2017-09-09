@@ -5,6 +5,11 @@ import { numberRangeValidator } from '../shared-validators/number-range-validato
 export function MySuperConrolRangeValidator(maxValue, minValue) {
   return function validateNumberRange(c: FormControl) {
     let v = <MySuperControlValue>c.value;
-    return numberRangeValidator(v.value2, maxValue, minValue);
+    if (v){
+      return numberRangeValidator(v.value2, maxValue, minValue);
+    }
+    else {
+      return numberRangeValidator(null, maxValue, minValue);
+    }
   }
 }

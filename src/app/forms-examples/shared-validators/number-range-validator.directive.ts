@@ -6,6 +6,10 @@ export class RangeValidatorMessage {
 
 export function numberRangeValidator(valueToValidate, maxValue, minValue) {
 
+    if (!valueToValidate){
+      return null;
+    }
+
     let err = new RangeValidatorMessage();
     err.value = valueToValidate;
     err.maxNumber = maxValue;
