@@ -171,6 +171,12 @@ In case we want use this validator in template-driven forms we pass is as attrib
 It also shows that validation can be embedded directly in the custom control (*MySuperConrolRangeValidator*) or can be handled outside of this control (*MySuperControlForbiddenValueValidatorDirective*).
 First is called function *validate* and next other validators.
 
+Example with custom __async validation__ is presented in *ForbiddenValidatorAsyncDirective*. It implements the interface *AsyncValidator*.  
+NOTE: when async validation is pending status of the control is always INVALID.
+NOTE1: for performance reasons, Angular only runs async validators if all sync validators pass.
+
+TODO: example with multiple async validators (if all start at the same time or they are sequential, next start if previous async is finished) 
+
 Links:  
 
 https://netbasal.com/angular-custom-form-controls-made-easy-4f963341c8e2  
