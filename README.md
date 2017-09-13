@@ -82,6 +82,10 @@ private onChangeCallback = (_: any) => {
 };
 ```  
 
+but in both cases these are __dummy__ functions that are never executed.
+In both cases these functions are later provided by Angular itself. It is needed only to be able execute typescript transpile. 
+It is better to use approach with declaration because then it is clearly know the function is only variable with reference to another function *fn*.
+
 The *writeValue* is called when we pass something to the control via [(ngModel)] in case of template driven forms
 or when we call setValue/patchValue/reset in case of reactive forms.
 ```typescript
@@ -90,8 +94,7 @@ or when we call setValue/patchValue/reset in case of reactive forms.
     this.viewModel = obj;
   }
 ```
-but in both cases these are __dummy__ functions that are never executed.
-In both cases these functions are later provided by Angular itself. It is needed only to be able execute typescript transpile.  
+ 
 
 The *registerOnTouched* function accepts a callback function which you can call when you want to set your control to touched.   
 This is then managed by Angular by adding the correct touched state and classes to the actual element tag in the DOM. 

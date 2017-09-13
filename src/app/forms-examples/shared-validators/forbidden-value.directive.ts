@@ -3,6 +3,7 @@ import { AbstractControl, NG_VALIDATORS, Validator, ValidatorFn } from '@angular
 
 export function forbiddenValueValidator(nameRe: RegExp): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} => {
+    console.log('forbiddenValueValidator in progress');
     const forbidden = nameRe.test(control.value);
     return forbidden ? {'forbiddenValue': {value: control.value}} : null;
   };
