@@ -4,6 +4,7 @@ import { MySuperControlValue } from './my-super-control.component';
 
 export function superforbiddenValueValidator(forbiddenValue: number): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} => {
+    console.log("superforbiddenValueValidator");
     let val = <MySuperControlValue>control.value;
     if (val) {
       return forbiddenValue == val.value2 ? {'forbiddenValue': {value: forbiddenValue}} : null;

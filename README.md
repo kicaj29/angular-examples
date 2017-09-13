@@ -137,12 +137,15 @@ To switch between situation A and B use setting __useDeepCopy__ from the MySuper
 NOTE: If we do not create deep copy __setters from component are not executed, it means that to have working well validation we have to create deep copy always!!!__
 
 __Validation__  
-This custom control contains also example with custom validator. First step is to implement interface *Validator*.  
-Next step is to create custom validator *MySuperConrolRangeValidator* that is dedicated only for this control but  
-it uses shared validator logic *numberRangeValidator*.
+This custom control contains also example with custom validator.  
+One option is to implement interface *Validator* directly by this control.  
 If we want support only reactive forms function *validate(c: AbstractControl)* from *Validator* interface can be empty
 but it has to exists to not get exception in run time. Function *validate(c: AbstractControl)* is executed after execution
-MySuperConrolRangeValidator so here we can add some additional control validations if needed.
+MySuperConrolRangeValidator so here we can add some additional control validations if needed.  
+Another option is to create custom validator like e.g. *MySuperConrolRangeValidator* that is dedicated only for this control but  
+it uses shared validator logic *numberRangeValidator*.  
+NOTE: remember that validation is executed also during control initialization so it has to work correctly with default values (like undefined or some default defined values).
+
 
 Usage in reactive forms. Usage:
 
@@ -154,11 +157,15 @@ Usage in reactive forms. Usage:
       secretLairs: this.fb.array([]), // <-- secretLairs as an empty FormArray
       power: '',
       sidekick: '',
-      genderAndNumber: [new MySuperControlValue(), MySuperConrolRangeValidator(200, 0)],
-      heroNameSimpleCustomControl: ''
+      genderAndNumber: [new MySuperControlValue(),
+        [MySuperConrolRangeValidator(200, 0), superforbiddenValueValidator(123)] //synchronous validators
+      ],
+      heroNameSimpleCustomControl: ['', [Validators.required, forbiddenValueValidator(new RegExp('common-data', 'i'))]]
     });
   }
 ```
+In case of *MySuperControlValue* are used 2 sync validators so you can see that second validator *MySuperControlValue* is called even previous *MySuperConrolRangeValidator* returned validation error. 
+
 If we want support template-driven forms in function *validate(c: AbstractControl)* we have to return not null value if validation failed.
 
 I am not sure when we should use *registerOnValidatorChange*. This function has very limited documentation
@@ -179,6 +186,8 @@ NOTE: when async validation is pending status of the control is always INVALID.
 NOTE1: for performance reasons, Angular only runs async validators if all sync validators pass.
 
 TODO: example with multiple async validators (if all start at the same time or they are sequential, next start if previous async is finished) 
+TODO: how to get validation errors
+TODO: forwardRef, multi: true
 
 Links:  
 

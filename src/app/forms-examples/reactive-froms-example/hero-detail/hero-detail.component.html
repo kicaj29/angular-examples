@@ -9,11 +9,11 @@
     <label class="center-block">Name:
       <input class="form-control" formControlName="heroName">
     </label>
+    <my-simple-control formControlName="heroNameSimpleCustomControl">Name (from simple custom control):</my-simple-control>
     <label class="center-block">My super control:
       <br>
       <my-super-control formControlName="genderAndNumber" [useDeepCopy]=true></my-super-control>
     </label>
-    <my-simple-control formControlName="heroNameSimpleCustomControl">Name (from simple custom control):</my-simple-control>
     <h4>Name change log</h4>
     <div *ngFor="let name of nameChangeLog">{{name}}</div>
   </div>
@@ -93,6 +93,9 @@
 <p>Name value: {{ heroForm.get('heroName').value }}</p>
 <p>Name pristine: {{ heroForm.get('heroName').pristine }}</p>
 <p>Name untouched: {{ heroForm.get('heroName').untouched }}</p>
+<p>Name (simple custom control) value: {{ heroForm.get('heroNameSimpleCustomControl').value }}</p>
+<p>Name (simple custom control) pristine: {{ heroForm.get('heroNameSimpleCustomControl').pristine }}</p>
+<p>Name (simple custom control) untouched: {{ heroForm.get('heroNameSimpleCustomControl').untouched }}</p>
 <p>Street value: {{ heroForm.get('address.street').value}}</p>
 <p>Status genderAndNumber control: {{heroForm.get('genderAndNumber').status}}</p>
 <p>Untouched genderAndNumber control: {{heroForm.get('genderAndNumber').untouched}}</p>

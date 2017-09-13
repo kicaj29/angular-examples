@@ -4,6 +4,7 @@ import { numberRangeValidator } from '../shared-validators/number-range-validato
 
 export function MySuperConrolRangeValidator(maxValue, minValue) {
   return function validateNumberRange(c: FormControl) {
+    console.log("MySuperConrolRangeValidator");
     let v = <MySuperControlValue>c.value;
     if (v){
       return numberRangeValidator(v.value2, maxValue, minValue);

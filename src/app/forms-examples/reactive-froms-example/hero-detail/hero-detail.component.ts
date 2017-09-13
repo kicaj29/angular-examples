@@ -5,6 +5,7 @@ import { HeroService } from '../hero.service';
 import { MySuperControlValue } from '../../my-super-control/my-super-control.component';
 import { MySuperConrolRangeValidator } from '../../my-super-control/my-super-control-range-validator';
 import { superforbiddenValueValidator } from '../../my-super-control/my-super-control-forbidden-value-validator.directive';
+import { forbiddenValueValidator } from '../../shared-validators/forbidden-value.directive';
 
 @Component({
   selector: 'hero-detail',
@@ -40,7 +41,7 @@ export class HeroDetailComponent implements OnChanges {
       genderAndNumber: [new MySuperControlValue(),
         [MySuperConrolRangeValidator(200, 0), superforbiddenValueValidator(123)] //synchronous validators
       ],
-      heroNameSimpleCustomControl: ''
+      heroNameSimpleCustomControl: ['', [Validators.required, forbiddenValueValidator(new RegExp('common-data', 'i'))]]
     });
   }
 
