@@ -118,7 +118,7 @@ Another example is for control *MySuperControlComponent* also in reactive form *
 
 __Validation__    
 Example with existing validator is available in template-driven forms (required validator).
-*ForbiddenValidatorDirective* is validator that works fine for standard input but also for any custom control that return string,  
+*ForbiddenValidatorDirective* is validator that works fine for standard input but also for any custom control that returns string,  
 so we can use this validator in *MySimpleControlComponent*.
 
 ### My super control
@@ -146,7 +146,7 @@ This custom control contains also example with custom validator.
 One option is to implement interface *Validator* directly by this control.  
 If we want support only reactive forms function *validate(c: AbstractControl)* from *Validator* interface can be empty
 but it has to exists to not get exception in run time. Function *validate(c: AbstractControl)* is executed after execution
-MySuperConrolRangeValidator so here we can add some additional control validations if needed.  
+MySuperConrolRangeValidator so here we can add some additional control validation if needed.  
 Another option is to create custom validator like e.g. *MySuperConrolRangeValidator* that is dedicated only for this control but  
 it uses shared validator logic *numberRangeValidator*.  
 NOTE: remember that validation is executed also during control initialization so it has to work correctly with default values (like undefined or some default defined values).
@@ -165,7 +165,7 @@ Usage in reactive forms. Usage:
       genderAndNumber: [new MySuperControlValue(),
         [MySuperConrolRangeValidator(200, 0), superforbiddenValueValidator(123)] //synchronous validators
       ],
-      heroNameSimpleCustomControl: ['', [Validators.required, forbiddenValueValidator(new RegExp('common-data', 'i'))]]
+      heroNameSimpleCustomControl: ['', [Validators.required, forbiddenValueValidator(new RegExp('common-data', 'i'))], [forbiddenValueAsyncValidator(new RegExp('ole', 'i'))]]
     });
   }
 ```
@@ -186,8 +186,19 @@ In case we want use this validator in template-driven forms we pass is as attrib
 It also shows that validation can be embedded directly in the custom control (*MySuperConrolRangeValidator*) or can be handled outside of this control (*MySuperControlForbiddenValueValidatorDirective*).
 First is called function *validate* and next other validators.
 
-Example with custom __async validation__ is presented in *ForbiddenValidatorAsyncDirective*. It implements the interface *AsyncValidator*.  
-NOTE: when async validation is pending status of the control is always INVALID.
+Example with custom __async validation__ is presented in *ForbiddenValidatorAsyncDirective*. It implements the interface *AsyncValidator*.
+There is example for the simple custom control for both template driven and reactive forms.
+  
+```html
+  <my-simple-control required name="nameSimpleControl" [(ngModel)]="customer.value1" #mySimpleControl="ngModel"
+                     forbiddenValue="dupa" forbiddenValueAsync="ole">Name:</my-simple-control>
+```
+
+```typescript
+heroNameSimpleCustomControl: ['', [Validators.required, forbiddenValueValidator(new RegExp('common-data', 'i'))], [forbiddenValueAsyncValidator(new RegExp('ole', 'i'))]]
+```
+
+NOTE: when async validation is pending status of the control is always INVALID but status of the form is __PENDING__.      
 NOTE1: for performance reasons, Angular only runs async validators if all sync validators pass.
 
 TODO: example with multiple async validators (if all start at the same time or they are sequential, next start if previous async is finished) 
