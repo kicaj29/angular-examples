@@ -65,8 +65,10 @@ This is bigger chapter that covers:
 Example with a control that works fine for both forms: template driven and reactive forms.  
 As input value it takes string. Example of usage is available in *Reactive forms examples* and *Template driven forms*.
 
+__Every custom control must implement interface *ControlValueAccessor*.__
+
 The *registerOnChange* accepts a callback function which you can call when changes happen so that you can notify the  
-outside world that the data model has changed. Note that you call it with the changed data model value.  
+outside world that the data model has changed. It triggers also validation mechanism. Note that you call it with the changed data model value.  
 The callback function can be set as __declaration__  
   
 ```typescript
@@ -82,12 +84,12 @@ private onChangeCallback = (_: any) => {
 };
 ```  
 
-but in both cases these are __dummy__ functions that are never executed.
-In both cases these functions are later provided by Angular itself. It is needed only to be able execute typescript transpile. 
-It is better to use approach with declaration because then it is clearly know the function is only variable with reference to another function *fn*.
+but in both cases they are __dummy__ functions which are only reference to function defined in Angular code.  
+Using declaration instead of definition is more intuitive because it better describes fact that this is only reference  
+to function defined in Angular code.
 
 The *writeValue* is called when we pass something to the control via [(ngModel)] in case of template driven forms
-or when we call setValue/patchValue/reset in case of reactive forms.
+or when we call *setValue/patchValue/reset* in case of reactive forms.
 ```typescript
   writeValue(obj: any): void {
     console.log("CVA: writeValue");
@@ -108,8 +110,11 @@ Usually we should call this registered function in *onBlur* handler but it is up
       this.onTouchedCallback();
     };
 ```
-Good example is in *MySuperControlComponent* where we handle control with 2 inputs. In reactive forms example 
-we can observe how changes value *untouched* true/false in HeroDetailComponent view.
+Example that shows how to change value *untouched* is available in reactive form *hero-detail.component.html*
+```html
+<p>Name (simple custom control) untouched: {{ heroForm.get('heroNameSimpleCustomControl').untouched }}</p>
+```   
+Another example is for control *MySuperControlComponent* also in reactive form *hero-detail.component.html*.
 
 __Validation__    
 Example with existing validator is available in template-driven forms (required validator).
