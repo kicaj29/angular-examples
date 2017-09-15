@@ -187,13 +187,15 @@ It also shows that validation can be embedded directly in the custom control (*M
 First is called function *validate* and next other validators.
 
 Example with custom __async validation__ is presented in *ForbiddenValidatorAsyncDirective*. It implements the interface *AsyncValidator*.
-There is example for the simple custom control for both template driven and reactive forms.
+There is example for the simple custom control for both template driven and reactive forms.   
   
+Template driven:   
 ```html
   <my-simple-control required name="nameSimpleControl" [(ngModel)]="customer.value1" #mySimpleControl="ngModel"
                      forbiddenValue="dupa" forbiddenValueAsync="ole">Name:</my-simple-control>
 ```
 
+Reactive forms:   
 ```typescript
 heroNameSimpleCustomControl: ['', [Validators.required, forbiddenValueValidator(new RegExp('common-data', 'i'))], [forbiddenValueAsyncValidator(new RegExp('ole', 'i'))]]
 ```
