@@ -26,6 +26,10 @@ export let appRoutes: Routes = [
   {
     path: 'forms-examples',
     loadChildren: './forms-examples/forms-examples.module#FormsExamplesModule'
+  },
+  {
+    path: 'forwardref-examples',
+    loadChildren: './forwardref-examples/forwardref-examples.module#ForwardrefExamplesModule'
   }
 ];
 

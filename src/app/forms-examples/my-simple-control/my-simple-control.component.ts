@@ -3,7 +3,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export const MY_SIMPLE_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => MySimpleControlComponent),
+  useExisting: forwardRef(() => {
+    console.log("forwardRef: MySimpleControlComponent");
+    debugger;
+    return MySimpleControlComponent;
+    }
+  ),
+  //useExisting: MySimpleControlComponent,
   multi: true
 };
 

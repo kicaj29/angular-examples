@@ -238,3 +238,19 @@ https://angular.io/guide/forms
 
 ## Date examples
 
+## forwardRef examples
+To understand forwardRef please read first about hoisting in javascript https://github.com/kicaj29/javascript-examples   
+What forwardRef does is, it takes a function as a parameter that returns a class. And because this function isn’t immediately called      
+but instead is called after the class is declared it is safe to return the class from it.   
+
+### forwardRef in useClass (ClassProvider)
+it does not work and I do not know why!
+
+### forwardRef in useExisting (ExistingProvider)
+
+https://blog.thoughtram.io/angular/2015/09/03/forward-references-in-angular-2.html   
+https://blog.angularindepth.com/what-is-forwardref-in-angular-and-why-we-need-it-6ecefb417d48   
+
+## Multi providers (todo)
+
+https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html   
