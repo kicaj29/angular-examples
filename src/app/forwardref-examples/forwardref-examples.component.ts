@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForwardrefExamplesComponent implements OnInit {
 
-  isUseClass: boolean = true;
+  exampleNumber: number = 1;
   constructor() { }
 
   ngOnInit() {

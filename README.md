@@ -243,13 +243,19 @@ To understand forwardRef please read first about hoisting in javascript https://
 What forwardRef does is, it takes a function as a parameter that returns a class. And because this function isn’t immediately called      
 but instead is called after the class is declared it is safe to return the class from it.   
 
+https://blog.thoughtram.io/angular/2015/09/03/forward-references-in-angular-2.html   
+https://blog.angularindepth.com/what-is-forwardref-in-angular-and-why-we-need-it-6ecefb417d48
+
 ### forwardRef in useClass (ClassProvider)
 it does not work and I do not know why!
 
 ### forwardRef in useExisting (ExistingProvider)
 
-https://blog.thoughtram.io/angular/2015/09/03/forward-references-in-angular-2.html   
-https://blog.angularindepth.com/what-is-forwardref-in-angular-and-why-we-need-it-6ecefb417d48   
+### forwardRef in @Inject
+If the class is defined after component in which we want inject this class (service) we have to use forwardRef!.   
+NOTE: this service must be provided in a module.
+TODO: check how it works if this service is provided in a component!!!
+   
 
 ## Multi providers (todo)
 

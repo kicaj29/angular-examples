@@ -1,11 +1,15 @@
 <p>
   forwardref-examples
 </p>
-<button type="button" (click)="isUseClass=true">Use class (ClassProvider)</button>
-<button type="button" (click)="isUseClass=false">Use existing (ExistingProvider)</button>
-<div *ngIf="isUseClass">
+<button type="button" (click)="exampleNumber=1">Use class (ClassProvider)</button>
+<button type="button" (click)="exampleNumber=2">Use existing (ExistingProvider)</button>
+<button type="button" (click)="exampleNumber=3">Inject</button>
+<div *ngIf="exampleNumber==1">
   <forwardref-useclass></forwardref-useclass>
 </div>
-<div>
+<div *ngIf="exampleNumber==2">
 
+</div>
+<div *ngIf="exampleNumber==3">
+  <forwardref-inject></forwardref-inject>
 </div>
