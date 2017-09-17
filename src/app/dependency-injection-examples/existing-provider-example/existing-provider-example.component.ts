@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyDataService } from './my-data.service';
 
 @Component({
   selector: 'existing-provider-example',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExistingProviderExampleComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dataService: MyDataService) { }
 
   ngOnInit() {
   }
