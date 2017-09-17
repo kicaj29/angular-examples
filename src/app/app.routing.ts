@@ -30,6 +30,10 @@ export let appRoutes: Routes = [
   {
     path: 'forwardref-examples',
     loadChildren: './forwardref-examples/forwardref-examples.module#ForwardrefExamplesModule'
+  },
+  {
+    path: 'dependency-injection-examples',
+    loadChildren: './dependency-injection-examples/dependency-injection-examples.module#DependencyInjectionExamplesModule'
   }
 ];
 

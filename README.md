@@ -260,3 +260,8 @@ TODO: check how it works if this service is provided in a component!!!
 ## Multi providers (todo)
 
 https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html   
+
+##Dependency Injection
+
+###BYPASSING PROVIDERS IN ANGULAR
+https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
