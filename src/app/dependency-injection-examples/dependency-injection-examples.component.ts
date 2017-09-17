@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DependencyInjectionExamplesComponent implements OnInit {
 
+  exampleNumber: number = 1;
   constructor() { }
 
   ngOnInit() {

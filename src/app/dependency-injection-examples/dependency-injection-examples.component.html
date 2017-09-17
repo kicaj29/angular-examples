@@ -1,3 +1,7 @@
 <p>
   dependency-injection-examples works!
 </p>
+<button type="button" (click)="exampleNumber=1">Use existing - ExistingProvider</button>
+<div *ngIf="exampleNumber==1">
+  <existing-provider-example></existing-provider-example>
+</div>
