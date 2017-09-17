@@ -1,3 +1,31 @@
+- [AngularExamples](#angularexamples)
+  * [Development server](#development-server)
+  * [Code scaffolding](#code-scaffolding)
+  * [Build](#build)
+  * [Running unit tests](#running-unit-tests)
+  * [Running end-to-end tests](#running-end-to-end-tests)
+  * [Further help](#further-help)
+  * [Translations](#translations)
+    + [How to use Angular translations build in Angular CLI with aot/prod](#how-to-use-angular-translations-build-in-angular-cli-with-aot-prod)
+    + [How to use ngx-translate](#how-to-use-ngx-translate)
+  * [Resolve examples](#resolve-examples)
+  * [Http examples](#http-examples)
+  * [Forms examples](#forms-examples)
+    + [My simple control](#my-simple-control)
+    + [My super control](#my-super-control)
+    + [Reactive forms examples](#reactive-forms-examples)
+    + [Template driven forms](#template-driven-forms)
+  * [Date examples](#date-examples)
+  * [forwardRef examples](#forwardref-examples)
+    + [forwardRef in useClass (ClassProvider)](#forwardref-in-useclass--classprovider-)
+    + [forwardRef in useExisting (ExistingProvider)](#forwardref-in-useexisting--existingprovider-)
+    + [forwardRef in @Inject](#forwardref-in--inject)
+  * [Multi providers (todo)](#multi-providers--todo-)
+  * [Dependency Injection](#dependency-injection)
+    + [BYPASSING PROVIDERS IN ANGULAR](#bypassing-providers-in-angular)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 # AngularExamples
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0-beta.0.
