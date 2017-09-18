@@ -5,9 +5,12 @@ export const MY_SIMPLE_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => {
     console.log("forwardRef: MySimpleControlComponent");
-    debugger;
     return MySimpleControlComponent;
     }
+  /*useClass: forwardRef(() => {
+      console.log("forwardRef: MySimpleControlComponent");
+      return MySimpleControlComponent;
+    }*/
   ),
   //useExisting: MySimpleControlComponent,
   multi: true
@@ -33,11 +36,11 @@ export class MySimpleControlComponent implements ControlValueAccessor {
   };
 
   private onChangeCallback = (_: any) => {
-    console.log("I will never be executed!!!");
+
   };
 
   constructor() {
-
+    console.log("MySimpleControlComponent: constructor");
   }
 
   onBlur() {

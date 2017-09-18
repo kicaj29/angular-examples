@@ -2,6 +2,10 @@
   dependency-injection-examples works!
 </p>
 <button type="button" (click)="exampleNumber=1">Use existing - ExistingProvider</button>
+<button type="button" (click)="exampleNumber=2">Multi providers</button>
 <div *ngIf="exampleNumber==1">
   <existing-provider-example></existing-provider-example>
+</div>
+<div *ngIf="exampleNumber==2">
+  <multi-providers-example></multi-providers-example>
 </div>

@@ -147,7 +147,9 @@ Another example is for control *MySuperControlComponent* also in reactive form *
 __Validation__    
 Example with existing validator is available in template-driven forms (required validator).
 *ForbiddenValidatorDirective* is validator that works fine for standard input but also for any custom control that returns string,  
-so we can use this validator in *MySimpleControlComponent*.
+so we can use this validator in *MySimpleControlComponent*.   
+__NOTE: it is important to use *useExisting* and not *useClass* in providers.__ With *useClass* we end up with multiple instances of *MySimpleControlComponent*.   
+Use *useClass* to see that the constructor is called more than one time!!!
 
 ### My super control
 Example with a control that works fine for both forms: template driven and reactive forms.
@@ -283,13 +285,17 @@ it does not work and I do not know why!
 If the class is defined after component in which we want inject this class (service) we have to use forwardRef!.   
 NOTE: this service must be provided in a module.
 TODO: check how it works if this service is provided in a component!!!
-   
-
-## Multi providers (todo)
-
-https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html   
 
 ## Dependency Injection
 
-### BYPASSING PROVIDERS IN ANGULAR
+### ExistingProvider - BYPASSING PROVIDERS IN ANGULAR
 https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
+
+### Multi providers
+Using multi: true tells Angular that the provider is a multi provider. With multi providers, we can provide multiple values for a single token in DI for example multiple implementation of the same interface.   
+NOTE: it looks that multi providers __Do Not Aggregate Value Across Hierarchical Injectors In Angular__.   
+It means that *ControlValueAccessor* token *NG_VALUE_ACCESSOR* is managed by Angular in some another way that allows somehow access to   
+all implementations of this interface in an app and call methods *registerOnChange*, *registerOnTouched*.
+https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html      
+https://www.eduonix.com/blog/web-programming-tutorials/learn-multi-providers-feature-angular2   
+https://www.bennadel.com/blog/3080-multi-providers-do-not-aggregate-value-across-hierarchical-injectors-in-angular-2-beta-14.htm      

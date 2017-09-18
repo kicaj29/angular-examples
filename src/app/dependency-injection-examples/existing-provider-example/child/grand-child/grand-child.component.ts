@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ROOT_MYDATASERVICE } from '../../token';
+import { MyDataService } from '../../my-data.service';
 
 @Component({
   selector: 'grand-child',
@@ -8,9 +9,11 @@ import { ROOT_MYDATASERVICE } from '../../token';
 })
 export class GrandChildComponent implements OnInit {
 
-  constructor(@Inject(ROOT_MYDATASERVICE) public dataService) { }
+  constructor(@Inject(ROOT_MYDATASERVICE) public dataService: MyDataService) { }
+  //constructor(public dataService: MyChildDataService) { }
 
   ngOnInit() {
+
   }
 
 }
