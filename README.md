@@ -149,8 +149,7 @@ __Validation__
 Example with existing validator is available in template-driven forms (required validator).
 *ForbiddenValidatorDirective* is validator that works fine for standard input but also for any custom control that returns string,  
 so we can use this validator in *MySimpleControlComponent*.   
-__NOTE: it is important to use *useExisting* and not *useClass* in providers.__ With *useClass* we end up with multiple instances of *MySimpleControlComponent* and this would not work   
-because we want validate the same instance that is used in DOM.         
+__NOTE: it is important to use *useExisting* and not *useClass* in providers.__ With *useClass* we end up with multiple instances of *MySimpleControlComponent* and this would not work because we want validate the same instance that is used in DOM.         
 Use *useClass* to see that the constructor is called more than one time!!!
 
 ### My super control
