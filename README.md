@@ -20,11 +20,12 @@
     + [forwardRef in useClass (ClassProvider)](#forwardref-in-useclass--classprovider-)
     + [forwardRef in useExisting (ExistingProvider)](#forwardref-in-useexisting--existingprovider-)
     + [forwardRef in @Inject](#forwardref-in--inject)
-  * [Multi providers (todo)](#multi-providers--todo-)
   * [Dependency Injection](#dependency-injection)
-    + [BYPASSING PROVIDERS IN ANGULAR](#bypassing-providers-in-angular)
+    + [ExistingProvider - BYPASSING PROVIDERS IN ANGULAR](#existingprovider---bypassing-providers-in-angular)
+    + [Multi providers](#multi-providers)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 # AngularExamples
 
