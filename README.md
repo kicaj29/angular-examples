@@ -150,7 +150,8 @@ Example with existing validator is available in template-driven forms (required 
 *ForbiddenValidatorDirective* is validator that works fine for standard input but also for any custom control that returns string,  
 so we can use this validator in *MySimpleControlComponent*.   
 __NOTE: it is important to use *useExisting* and not *useClass* in providers.__ With *useClass* we end up with multiple instances of *MySimpleControlComponent* and this would not work because we want validate the same instance that is used in DOM.         
-Use *useClass* to see that the constructor is called more than one time!!!
+Use *useClass* to see that the constructor is called more than one time!!!   
+NOTE1:  The forwardRef breaks the circular reference by having the *MySimpleControlComponent* refer to itself and also we cannot reference to types before their type initialization.   
 
 ### My super control
 Example with a control that works fine for both forms: template driven and reactive forms.
@@ -290,7 +291,8 @@ TODO: check how it works if this service is provided in a component!!!
 ## Dependency Injection
 
 ### ExistingProvider - BYPASSING PROVIDERS IN ANGULAR
-https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html
+https://blog.thoughtram.io/angular/2016/09/14/bypassing-providers-in-angular-2.html   
+https://angular.io/guide/dependency-injection-in-action#find-a-parent-by-its-class-interface   
 
 ### Multi providers
 Using multi: true tells Angular that the provider is a multi provider. With multi providers, we can provide multiple values for a single token in DI for example multiple implementation of the same interface.   

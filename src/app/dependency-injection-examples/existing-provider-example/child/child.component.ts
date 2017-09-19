@@ -13,7 +13,9 @@ import { MyChildDataService, MyDataService } from '../my-data.service';
 })
 export class ChildComponent implements OnInit {
 
-  constructor(public dataService: MyDataService) { }
+  constructor(public dataService: MyDataService) {
+    debugger;
+  }
 
   ngOnInit() {
   }
