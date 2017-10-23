@@ -34,6 +34,10 @@ export let appRoutes: Routes = [
   {
     path: 'dependency-injection-examples',
     loadChildren: './dependency-injection-examples/dependency-injection-examples.module#DependencyInjectionExamplesModule'
+  },
+  {
+    path: 'observables-examples',
+    loadChildren: './observables-examples/observables-examples.module#ObservablesExamplesModule'
   }
 ];
 

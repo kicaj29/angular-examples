@@ -302,3 +302,11 @@ all implementations of this interface in an app and call methods *registerOnChan
 https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html      
 https://www.eduonix.com/blog/web-programming-tutorials/learn-multi-providers-feature-angular2   
 https://www.bennadel.com/blog/3080-multi-providers-do-not-aggregate-value-across-hierarchical-injectors-in-angular-2-beta-14.htm      
+
+
+## Observables
+
+### unsubscribe(), takeWhile(), takeUntil()
+
+https://netbasal.com/when-to-unsubscribe-in-angular-d61c6b21bad3
+http://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
