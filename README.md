@@ -306,6 +306,8 @@ https://www.bennadel.com/blog/3080-multi-providers-do-not-aggregate-value-across
 
 ## Observables
 
+### Observable vs Promise
+
 ### unsubscribe(), takeWhile(), takeUntil()
 
 https://netbasal.com/when-to-unsubscribe-in-angular-d61c6b21bad3

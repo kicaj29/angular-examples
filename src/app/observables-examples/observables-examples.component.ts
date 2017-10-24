@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObservablesExamplesComponent implements OnInit {
 
+  exampleType = "E1";
+
   constructor() { }
 
   ngOnInit() {
