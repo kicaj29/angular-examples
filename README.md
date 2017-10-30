@@ -23,9 +23,11 @@
   * [Dependency Injection](#dependency-injection)
     + [ExistingProvider - BYPASSING PROVIDERS IN ANGULAR](#existingprovider---bypassing-providers-in-angular)
     + [Multi providers](#multi-providers)
+  * [Observables](#observables)
+    + [Observable vs Promise](#observable-vs-promise)
+    + [unsubscribe(), takeWhile(), takeUntil(), also promise example](#unsubscribe----takewhile----takeuntil----also-promise-example)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 # AngularExamples
 
