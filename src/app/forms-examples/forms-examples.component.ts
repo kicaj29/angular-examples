@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormsExamplesComponent implements OnInit {
 
-  showReactiveForms: boolean;
+  mode: string;
   constructor() {
-    this.showReactiveForms = true;
+    this.mode = "REACTIVE_FORMS";
   }
 
   ngOnInit() {

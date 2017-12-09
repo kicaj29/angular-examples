@@ -5,6 +5,7 @@ import { ReactiveFormsExampleModule } from './reactive-froms-example/reactive-fo
 import { TemplateDrivenFormsExampleModule } from './template-driven-forms-example/template-driven-forms-example.module';
 import { FormsModule } from '@angular/forms';
 import { FormsExamplesComponent } from './forms-examples.component';
+import { ReactiveFromsNestedComponentsExampleModule } from './reactive-froms-nested-components-example/reactive-froms-nested-components-example.module';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { FormsExamplesComponent } from './forms-examples.component';
     routing,
     FormsModule,
     ReactiveFormsExampleModule,
-    TemplateDrivenFormsExampleModule
+    TemplateDrivenFormsExampleModule,
+    ReactiveFromsNestedComponentsExampleModule
   ],
   declarations: [FormsExamplesComponent],
   exports: [],
