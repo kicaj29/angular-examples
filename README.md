@@ -267,6 +267,7 @@ FormGroup functions:
 Includes also example with ControlValueAccessor.  
 
 ### Reactive forms nested components examples
+Especially take a look on case with adding new item to the array then we have to call __detectChanges()__.
 http://brophy.org/post/nested-reactive-forms-in-angular2/   
 https://scotch.io/tutorials/how-to-build-nested-model-driven-forms-in-angular-2   
 https://medium.com/spektrakel-blog/angular2-building-nested-reactive-forms-7978ecd145e4   
