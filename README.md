@@ -271,6 +271,7 @@ Especially take a look on case with adding new item to the array then we have to
 http://brophy.org/post/nested-reactive-forms-in-angular2/   
 https://scotch.io/tutorials/how-to-build-nested-model-driven-forms-in-angular-2   
 https://medium.com/spektrakel-blog/angular2-building-nested-reactive-forms-7978ecd145e4   
+https://blog.angularindepth.com/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error-e3fd9ce7dbb4
 
 ### Template driven forms 
 Example with template driven forms including usage of own controls.  
