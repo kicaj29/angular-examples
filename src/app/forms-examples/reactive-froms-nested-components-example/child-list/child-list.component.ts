@@ -46,6 +46,9 @@ export class ChildListComponent implements OnInit {
     //it looks that then we do not have to call detectChanges()
     //why it does not work???
     //even I call detectChanges() exception ExpressionChangedAfterItHasBeenCheckedError is thrown!!!
+
+    //on Angular.io they do it in this way https://angular.io/guide/reactive-forms#add-a-new-lair-to-the-formarray
+    //but their example is in one component!
     (<FormArray>this.parentForm.get('children')).push(
       this.fb.group({
           id: [ Math.floor(Math.random() * 100) ],
