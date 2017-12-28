@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChildData } from '../interfaces';
 
 @Component({
@@ -15,10 +15,10 @@ export class ChildListComponent implements OnInit {
   @Input('children')
   public children: ChildData[];
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(private cd: ChangeDetectorRef, private fb: FormBuilder) { }
 
   ngOnInit() {
-    console.log('Initializing child list', this.children);
+    console.log('Initializing child list!', this.children);
     this.parentForm.addControl('children', new FormArray([]));
   }
 
@@ -30,7 +30,6 @@ export class ChildListComponent implements OnInit {
       childHiddenField1: ''
     };
 
-    debugger;
     this.children.push(child);
 
     //https://stackoverflow.com/questions/39787038/how-to-manage-angular2-expression-has-changed-after-it-was-checked-exception-w
@@ -39,6 +38,28 @@ export class ChildListComponent implements OnInit {
     //thanks to this the new component is created in the current change detection loop!
     this.cd.detectChanges();
     return false;
+  }
+
+
+  addChildByFormArray() {
+
+    //it looks that then we do not have to call detectChanges()
+    //why it does not work???
+    //even I call detectChanges() exception ExpressionChangedAfterItHasBeenCheckedError is thrown!!!
+    (<FormArray>this.parentForm.get('children')).push(
+      this.fb.group({
+          id: [ Math.floor(Math.random() * 100) ],
+          childField1: [ '', Validators.required ],
+          childField2: [ '', Validators.required ],
+          childHiddenField1: [ '' ]
+        }
+      )
+    );
+
+    this.cd.detectChanges();
+
+    return false;
+
   }
 
   removeChild(idx: number) {

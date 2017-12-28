@@ -6,12 +6,16 @@
       Child {{child.id}}
       (<a href="" (click)="removeChild(idx)">Remove</a>)
       <reactive-child-form
-        [children]="parentForm.controls.children"
-        [child]="child">
+      [children]="parentForm.controls.children"
+      [child]="child">
       </reactive-child-form>
     </div>
     <a href="" (click)="addChild()">
       Add Child
+    </a>
+    <br>
+    <a href="" (click)="addChildByFormArray()">
+      Add Child By From Array
     </a>
   </div>
 </div>
