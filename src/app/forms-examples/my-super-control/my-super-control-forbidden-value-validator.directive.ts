@@ -13,7 +13,7 @@ export function superforbiddenValueValidator(forbiddenValue: number): ValidatorF
       return null;
     }
   };
-}1
+}
 
 @Directive({
   selector: '[superForbiddenValue]',
