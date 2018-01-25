@@ -97,6 +97,7 @@
 <p>Name (simple custom control) pristine: {{ heroForm.get('heroNameSimpleCustomControl').pristine }}</p>
 <p>Name (simple custom control) untouched: {{ heroForm.get('heroNameSimpleCustomControl').untouched }}</p>
 <p>Name (simple custom control) valid: {{ heroForm.get('heroNameSimpleCustomControl').valid }}</p>
+<p>Name (simple custom control) errors: {{ heroForm.get('heroNameSimpleCustomControl').errors | json }}</p>
 <p>Street value: {{ heroForm.get('address.street').value}}</p>
 <p>Status genderAndNumber control: {{heroForm.get('genderAndNumber').status}}</p>
 <p>Untouched genderAndNumber control: {{heroForm.get('genderAndNumber').untouched}}</p>
