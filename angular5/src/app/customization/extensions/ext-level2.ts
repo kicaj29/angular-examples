@@ -1,3 +1,0 @@
-export const EXT_LEVEL2_ALL_START_COMPONENTS_MAPPING = [
-
-];
