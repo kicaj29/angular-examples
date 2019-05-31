@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <th *ngFor="let col of cols;"
+        [ngStyle]="{'width': col.width + 'px'}" (mousedown)="resizeTable($event, col)"
+    >
+      {{col.name}}
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows">
+      <td *ngFor="let col of cols">
+        {{row.data[col.fieldName]}}
+      </td>
+    </tr>
+  </tbody>
+</table>

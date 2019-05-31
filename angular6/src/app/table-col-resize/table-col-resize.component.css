@@ -1,0 +1,18 @@
+table {
+  table-layout: fixed;
+  width: 200px;
+  border-spacing: 0;
+  overflow-x: auto;
+}
+
+th {
+  border: 1px solid green;
+  padding: 0;
+}
+
+td {
+  border: 1px solid green;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+}
