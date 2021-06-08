@@ -1,32 +1,29 @@
 - [AngularExamples](#angularexamples)
-  * [Development server](#development-server)
-  * [Code scaffolding](#code-scaffolding)
-  * [Build](#build)
-  * [Running unit tests](#running-unit-tests)
-  * [Running end-to-end tests](#running-end-to-end-tests)
-  * [Further help](#further-help)
-  * [Translations](#translations)
-    + [How to use Angular translations build in Angular CLI with aot/prod](#how-to-use-angular-translations-build-in-angular-cli-with-aot-prod)
-    + [How to use ngx-translate](#how-to-use-ngx-translate)
-  * [Resolve examples](#resolve-examples)
-  * [Http examples](#http-examples)
-  * [Forms examples](#forms-examples)
-    + [My simple control](#my-simple-control)
-    + [My super control](#my-super-control)
-    + [Reactive forms examples](#reactive-forms-examples)
-    + [Reactive forms nested components examples](#reactive-forms-nested-components-examples)
-    + [Template driven forms](#template-driven-forms)
-  * [Date examples](#date-examples)
-  * [forwardRef examples](#forwardref-examples)
-    + [forwardRef in useClass (ClassProvider)](#forwardref-in-useclass--classprovider-)
-    + [forwardRef in useExisting (ExistingProvider)](#forwardref-in-useexisting--existingprovider-)
-    + [forwardRef in @Inject](#forwardref-in--inject)
-  * [Dependency Injection](#dependency-injection)
-    + [ExistingProvider - BYPASSING PROVIDERS IN ANGULAR](#existingprovider---bypassing-providers-in-angular)
-    + [Multi providers](#multi-providers)
-  * [Observables](#observables)
-    + [Observable vs Promise](#observable-vs-promise)
-    + [unsubscribe(), takeWhile(), takeUntil(), also promise example](#unsubscribe----takewhile----takeuntil----also-promise-example)
+  - [Development server](#development-server)
+  - [Code scaffolding](#code-scaffolding)
+  - [Build](#build)
+  - [Running unit tests](#running-unit-tests)
+  - [Running end-to-end tests](#running-end-to-end-tests)
+  - [Further help](#further-help)
+  - [Translations](#translations)
+    - [How to use Angular translations build in Angular CLI with aot/prod](#how-to-use-angular-translations-build-in-angular-cli-with-aotprod)
+    - [How to use ngx-translate](#how-to-use-ngx-translate)
+  - [Resolve examples](#resolve-examples)
+  - [Http examples](#http-examples)
+  - [Forms examples](#forms-examples)
+    - [My simple control](#my-simple-control)
+    - [My super control](#my-super-control)
+    - [Reactive forms examples](#reactive-forms-examples)
+    - [Reactive forms nested components examples](#reactive-forms-nested-components-examples)
+    - [Template driven forms](#template-driven-forms)
+  - [Date examples](#date-examples)
+  - [forwardRef examples](#forwardref-examples)
+    - [forwardRef in useClass (ClassProvider)](#forwardref-in-useclass-classprovider)
+    - [forwardRef in useExisting (ExistingProvider)](#forwardref-in-useexisting-existingprovider)
+    - [forwardRef in @Inject](#forwardref-in-inject)
+  - [Dependency Injection](#dependency-injection)
+    - [ExistingProvider - BYPASSING PROVIDERS IN ANGULAR](#existingprovider---bypassing-providers-in-angular)
+    - [Multi providers](#multi-providers)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -318,33 +315,8 @@ https://www.eduonix.com/blog/web-programming-tutorials/learn-multi-providers-fea
 https://www.bennadel.com/blog/3080-multi-providers-do-not-aggregate-value-across-hierarchical-injectors-in-angular-2-beta-14.htm      
 
 
-## Observables
-
-### Observable vs Promise
-
-https://netbasal.com/angular-stop-using-observable-when-you-should-use-a-promise-8da0788a8d2
-
-* First, Promises are eager and are executed immediately. Observables are not eager and are only executed when subscribed to.
-* Second, Promises are asynchronous. Observables can be either synchronous or asynchronous.
-* Third, Promises are expected to return only a single value (like a function). Observables can return zero, one or more (infinitely) values.
-
-Promise:
-* Promise is executed together with his constructor. There is no need to call 'then' to start execution of promise (eager loading).
-* There is no possibility to cancel promise.   NOTE: because of this we have to check if then is executed for still valid component (e.g.check if the component is already destroy).
-* If we call multiple times ‘then’ on the same instance of promise the promise only return value, content of promise is executed only one time!
-
-Observable:
-* Observable by default is executed only when we call subscribe at least one time
-* There is possibility to cancel observable but from unknow reasones it does not work in my example
-* If we call observale multple times it is executed every time from scratch
 
 
 
-### unsubscribe(), takeWhile(), takeUntil(), also promise example
 
-https://netbasal.com/when-to-unsubscribe-in-angular-d61c6b21bad3
-http://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 
-This example shows that even parent component is destroyed (*UnsubscribeUseComponent_*) the callback function is still executed.
-This will happen if the parent component is referenced by some singleton or function that exists for the whole life of application,
-in this case it was *setInterval*.   To avoid this problem call *clearInterval* and *unsubscribe* in *ngOnDestroy*.

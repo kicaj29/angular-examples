@@ -12,10 +12,6 @@ export let appRoutes: Routes = [
     loadChildren: './http-examples/http-examples.module#HttpExamplesModule'
   },
   {
-    path: 'resolve-examples',
-    loadChildren: './resolve-examples/resolve-examples.module#ResolveExamplesModule'
-  },
-  {
     path: 'service-inheritance-examples',
     loadChildren: './service-inheritance-examples/service-inheritance.module#ServiceInheritenceModule'
   },
@@ -34,10 +30,6 @@ export let appRoutes: Routes = [
   {
     path: 'dependency-injection-examples',
     loadChildren: './dependency-injection-examples/dependency-injection-examples.module#DependencyInjectionExamplesModule'
-  },
-  {
-    path: 'observables-examples',
-    loadChildren: './observables-examples/observables-examples.module#ObservablesExamplesModule'
   }
 ];
 
